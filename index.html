@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toi Nishitani | Web Design Auckland</title>
-    <meta name="description" content="Affordable, bilingual website design for small businesses in Auckland using modern web technologies.">
+    <meta name="description"
+        content="Affordable, bilingual website design for small businesses in Auckland using modern web technologies.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -32,7 +34,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .hero-pattern {
             background-color: #f0f9ff;
             background-image: radial-gradient(#bae6fd 1px, transparent 1px);
@@ -40,10 +45,12 @@
         }
     </style>
 </head>
+
 <body class="text-slate-800 bg-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100 transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100 transition-all duration-300"
+        id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center">
@@ -53,20 +60,28 @@
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#services" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors" data-i18n="nav_services">Services</a>
-                    <a href="#work" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors" data-i18n="nav_work">Work</a>
-                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors" data-i18n="nav_about">About</a>
-                    <a href="#contact" class="px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors" data-i18n="nav_contact">Contact</a>
-                    
+                    <a href="#services"
+                        class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
+                        data-i18n="nav_services">Services</a>
+                    <a href="#work" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
+                        data-i18n="nav_work">Work</a>
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
+                        data-i18n="nav_about">About</a>
+                    <a href="#contact"
+                        class="px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
+                        data-i18n="nav_contact">Contact</a>
+
                     <!-- Language Switcher -->
                     <div class="flex items-center space-x-2 border-l pl-6 border-slate-200">
-                        <button data-lang-switch="en" class="lang-btn text-xs uppercase tracking-wider font-bold">EN</button>
+                        <button data-lang-switch="en"
+                            class="lang-btn text-xs uppercase tracking-wider font-bold">EN</button>
                         <span class="text-slate-300">/</span>
-                        <button data-lang-switch="ja" class="lang-btn text-xs uppercase tracking-wider opacity-50">JA</button>
+                        <button data-lang-switch="ja"
+                            class="lang-btn text-xs uppercase tracking-wider opacity-50">JA</button>
                     </div>
                 </div>
                 <!-- Mobile menu button (simple implementation) -->
-                 <div class="md:hidden flex items-center space-x-4">
+                <div class="md:hidden flex items-center space-x-4">
                     <div class="flex items-center space-x-1">
                         <button data-lang-switch="en" class="lang-btn text-xs font-bold p-1">EN</button>
                         <span class="text-slate-300">/</span>
@@ -80,17 +95,25 @@
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-600 text-xs font-semibold tracking-wide uppercase mb-6" data-i18n="hero_badge">Based in Auckland, NZ</span>
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-600 text-xs font-semibold tracking-wide uppercase mb-6"
+                data-i18n="hero_badge">Based in Auckland, NZ</span>
             <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
                 <span data-i18n="hero_title_1">Websites for</span><br class="hidden md:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent" data-i18n="hero_title_2">Small Businesses</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent"
+                    data-i18n="hero_title_2">Small Businesses</span>
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-10" data-i18n="hero_subtitle">
-                Clean, bilingual, and affordable websites designed to help local businesses grow. No monthly fees, just results.
+                Clean, bilingual, and affordable websites designed to help local businesses grow. No monthly fees, just
+                results.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#work" class="px-8 py-4 rounded-full bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" data-i18n="hero_cta_primary">View Work</a>
-                <a href="#contact" class="px-8 py-4 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold hover:bg-slate-50 transition-all" data-i18n="hero_cta_secondary">Get in Touch</a>
+                <a href="#work"
+                    class="px-8 py-4 rounded-full bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    data-i18n="hero_cta_primary">View Work</a>
+                <a href="#contact"
+                    class="px-8 py-4 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold hover:bg-slate-50 transition-all"
+                    data-i18n="hero_cta_secondary">Get in Touch</a>
             </div>
         </div>
     </section>
@@ -100,33 +123,46 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="services_title">Why Choose Me?</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto" data-i18n="services_subtitle">I combine technical expertise with design sense to build websites that work for you.</p>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto" data-i18n="services_subtitle">I combine technical
+                    expertise with design sense to build websites that work for you.</p>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Card 1 -->
-                <div class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl mb-4">📱</div>
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl mb-4">📱
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_1_title">Responsive Design</h3>
-                    <p class="text-slate-600" data-i18n="service_1_desc">Mobile-first layouts that look perfect on phones, tablets, and desktops.</p>
+                    <p class="text-slate-600" data-i18n="service_1_desc">Mobile-first layouts that look perfect on
+                        phones, tablets, and desktops.</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-2xl mb-4">⚡</div>
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-2xl mb-4">⚡
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_2_title">Fast Turnaround</h3>
-                    <p class="text-slate-600" data-i18n="service_2_desc">Most projects are delivered within 1 week so you can launch quickly.</p>
+                    <p class="text-slate-600" data-i18n="service_2_desc">Most projects are delivered within 1 week so
+                        you can launch quickly.</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
-                    <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-2xl mb-4">🌏</div>
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
+                    <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-2xl mb-4">🌏
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_3_title">Bilingual (EN/JA)</h3>
-                    <p class="text-slate-600" data-i18n="service_3_desc">Reach both local Kiwis and Japanese customers with seamless language switching.</p>
+                    <p class="text-slate-600" data-i18n="service_3_desc">Reach both local Kiwis and Japanese customers
+                        with seamless language switching.</p>
                 </div>
                 <!-- Card 4 -->
-                <div class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
-                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl mb-4">💰</div>
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl mb-4">💰
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_4_title">Affordable</h3>
-                    <p class="text-slate-600" data-i18n="service_4_desc">Transparent pricing starting from $800. No hidden agency fees.</p>
+                    <p class="text-slate-600" data-i18n="service_4_desc">Transparent pricing starting from $800. No
+                        hidden agency fees.</p>
                 </div>
             </div>
         </div>
@@ -146,42 +182,64 @@
                 <!-- Cafe Demo -->
                 <a href="./demos/cafe/index.html" class="group block" data-lang-link>
                     <div class="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] mb-4 bg-gray-200">
-                        <img src="./assets/demo-cafe.jpg" onerror="window.__demoFallbackImg(this, 'Cafe Demo', '78350f', 'fff')" alt="Cafe Website Demo" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <img src="./assets/demo-cafe.jpg"
+                            onerror="window.__demoFallbackImg(this, 'Cafe Demo', '78350f', 'fff')"
+                            alt="Cafe Website Demo"
+                            class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors" data-i18n="demo_cafe_title">Cafe & Eatery</h3>
-                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_cafe_desc">Warm, photo-forward design for hospitality.</p>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors"
+                        data-i18n="demo_cafe_title">Cafe & Eatery</h3>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_cafe_desc">Warm, photo-forward design for
+                        hospitality.</p>
                     <div class="mt-3 flex flex-wrap gap-2">
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Bilingual Menu</span>
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Mobile Friendly</span>
+                        <span
+                            class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Bilingual
+                            Menu</span>
+                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Mobile
+                            Friendly</span>
                     </div>
                 </a>
 
                 <!-- Auto Repair Demo -->
                 <a href="./demos/auto-repair/index.html" class="group block" data-lang-link>
                     <div class="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] mb-4 bg-gray-200">
-                        <img src="./assets/demo-auto.jpg" onerror="window.__demoFallbackImg(this, 'Auto Repair', '0f172a', 'fff')" alt="Auto Repair Demo" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <img src="./assets/demo-auto.jpg"
+                            onerror="window.__demoFallbackImg(this, 'Auto Repair', '0f172a', 'fff')"
+                            alt="Auto Repair Demo"
+                            class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors" data-i18n="demo_auto_title">Auto Repair Shop</h3>
-                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_auto_desc">Trustworthy layout for service businesses.</p>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors"
+                        data-i18n="demo_auto_title">Auto Repair Shop</h3>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_auto_desc">Trustworthy layout for service
+                        businesses.</p>
                     <div class="mt-3 flex flex-wrap gap-2">
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Booking Form</span>
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Services List</span>
+                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Booking
+                            Form</span>
+                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Services
+                            List</span>
                     </div>
                 </a>
 
                 <!-- Hair Salon Demo -->
                 <a href="./demos/hair-salon/index.html" class="group block" data-lang-link>
                     <div class="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] mb-4 bg-gray-200">
-                        <img src="./assets/demo-salon.jpg" onerror="window.__demoFallbackImg(this, 'Hair Salon', 'f8fafc', 'a855f7')" alt="Hair Salon Demo" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <img src="./assets/demo-salon.jpg"
+                            onerror="window.__demoFallbackImg(this, 'Hair Salon', 'f8fafc', 'a855f7')"
+                            alt="Hair Salon Demo"
+                            class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors" data-i18n="demo_salon_title">Hair Salon</h3>
-                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_salon_desc">Elegant, gallery-ready design for beauty.</p>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors"
+                        data-i18n="demo_salon_title">Hair Salon</h3>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_salon_desc">Elegant, gallery-ready design for
+                        beauty.</p>
                     <div class="mt-3 flex flex-wrap gap-2">
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Gallery</span>
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Price List</span>
+                        <span
+                            class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Gallery</span>
+                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Price
+                            List</span>
                     </div>
                 </a>
             </div>
@@ -194,13 +252,17 @@
             <h2 class="text-3xl font-bold text-slate-900 mb-8" data-i18n="about_title">About Me</h2>
             <div class="prose prose-lg mx-auto text-slate-600 space-y-6">
                 <p data-i18n="about_p1">
-                    Hi, I'm Toi—a web designer based in Auckland with a software development background. After years building enterprise applications in Japan, I moved to New Zealand and discovered a passion for helping small businesses create their digital presence.
+                    Hi, I'm Toi—a web designer based in Auckland with a software development background. After years
+                    building enterprise applications in Japan, I moved to New Zealand and discovered a passion for
+                    helping small businesses create their digital presence.
                 </p>
                 <p data-i18n="about_p2">
-                    As a bilingual designer, I understand the unique needs of Auckland's diverse business community. Whether you're a Japanese restaurant owner wanting a bilingual menu site or a local tradie needing a simple contact page, I deliver quality websites without the agency price tag.
+                    As a bilingual designer, I understand the unique needs of Auckland's diverse business community.
+                    Whether you're a Japanese restaurant owner wanting a bilingual menu site or a local tradie needing a
+                    simple contact page, I deliver quality websites without the agency price tag.
                 </p>
             </div>
-            
+
             <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center">
                     <div class="text-3xl font-bold text-brand-600 mb-1">5+</div>
@@ -226,27 +288,40 @@
     <section id="contact" class="py-20 bg-slate-900 text-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-6" data-i18n="contact_title">Let's Work Together</h2>
-            <p class="text-lg text-slate-300 mb-10" data-i18n="contact_subtitle">Ready to start your project? Send me a message and I'll get back to you within 24 hours.</p>
-            
+            <p class="text-lg text-slate-300 mb-10" data-i18n="contact_subtitle">Ready to start your project? Send me a
+                message and I'll get back to you within 24 hours.</p>
+
             <div class="bg-slate-800 rounded-2xl p-8 mb-10 shadow-2xl border border-slate-700">
-                <form action="mailto:hello@toinishitani.nz" method="post" enctype="text/plain" class="space-y-4 text-left">
+                <form action="mailto:hello@toinishitani.nz" method="post" enctype="text/plain"
+                    class="space-y-4 text-left">
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-1" data-i18n="label_name">Name</label>
-                        <input type="text" name="name" class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-2 focus:ring-brand-500 focus:outline-none" required>
+                        <input type="text" name="name"
+                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-2 focus:ring-brand-500 focus:outline-none"
+                            required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1" data-i18n="label_email">Email</label>
-                        <input type="email" name="email" class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-2 focus:ring-brand-500 focus:outline-none" required>
+                        <label class="block text-sm font-medium text-slate-300 mb-1"
+                            data-i18n="label_email">Email</label>
+                        <input type="email" name="email"
+                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-2 focus:ring-brand-500 focus:outline-none"
+                            required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1" data-i18n="label_message">Message</label>
-                        <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-2 focus:ring-brand-500 focus:outline-none" required></textarea>
+                        <label class="block text-sm font-medium text-slate-300 mb-1"
+                            data-i18n="label_message">Message</label>
+                        <textarea name="message" rows="4"
+                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-2 focus:ring-brand-500 focus:outline-none"
+                            required></textarea>
                     </div>
-                    <button type="submit" class="w-full py-4 rounded-lg bg-brand-600 font-bold hover:bg-brand-500 transition-colors" data-i18n="btn_send">Send Message</button>
-                    <p class="text-xs text-center text-slate-400 mt-4" data-i18n="contact_note">This will open your default email client.</p>
+                    <button type="submit"
+                        class="w-full py-4 rounded-lg bg-brand-600 font-bold hover:bg-brand-500 transition-colors"
+                        data-i18n="btn_send">Send Message</button>
+                    <p class="text-xs text-center text-slate-400 mt-4" data-i18n="contact_note">This will open your
+                        default email client.</p>
                 </form>
             </div>
-            
+
             <div class="flex justify-center space-x-6 text-slate-400">
                 <a href="#" class="hover:text-white transition-colors">GitHub</a>
                 <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
@@ -257,11 +332,11 @@
     </section>
 
     <!-- Language Script -->
-    <script src="./demos/_shared/demo-lang.js"></script>
+    <script src="./demos/shared/demo-lang.js"></script>
     <script>
         // Check for fallback image function in case script hasn't loaded yet
         if (!window.__demoFallbackImg) {
-            window.__demoFallbackImg = function(img) { img.style.display='none'; }
+            window.__demoFallbackImg = function (img) { img.style.display = 'none'; }
         }
 
         // Initialize Language
@@ -272,7 +347,7 @@
                     nav_work: "Work",
                     nav_about: "About",
                     nav_contact: "Contact",
-                    
+
                     hero_badge: "Based in Auckland, NZ",
                     hero_title_1: "Websites for",
                     hero_title_2: "Small Businesses",
@@ -317,7 +392,7 @@
                     nav_work: "制作実績",
                     nav_about: "私について",
                     nav_contact: "お問い合わせ",
-                    
+
                     hero_badge: "オークランド拠点のウェブ制作",
                     hero_title_1: "個人事業主・",
                     hero_title_2: "中小企業向けウェブサイト",
@@ -361,4 +436,5 @@
         });
     </script>
 </body>
+
 </html>
