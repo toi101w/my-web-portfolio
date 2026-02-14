@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Kissa Cafe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fcf8f5',
+                            100: '#f7efe9',
+                            500: '#a36d4f',
+                            800: '#78350f',
+                            900: '#451a03',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'Hiragino Sans', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Quicksand:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-coffee-50 text-coffee-900 font-sans flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-coffee-100 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-2xl font-serif italic text-coffee-800" data-lang-link>Kissa Cafe</a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="font-medium hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_home" data-lang-link>Home</a>
+                    <a href="menu.html" class="font-medium hover:text-coffee-500 transition-colors" data-i18n="nav_menu"
+                        data-lang-link>Menu</a>
+                    <a href="contact.html" class="font-bold text-coffee-800" data-i18n="nav_contact"
+                        data-lang-link>Contact</a>
+                    <div class="flex items-center space-x-2 border-l pl-6 border-coffee-100">
+                        <button data-lang-switch="en" class="lang-btn text-xs font-bold font-serif">EN</button>
+                        <span class="text-coffee-200">/</span>
+                        <button data-lang-switch="ja"
+                            class="lang-btn text-xs font-bold font-serif opacity-50">JA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 py-16 w-full">
+        <h1 class="text-4xl text-center font-serif italic mb-16 text-coffee-800" data-i18n="contact_title">Visit Us</h1>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Info -->
+            <div class="space-y-12">
+                <div>
+                    <h3 class="text-xl font-bold uppercase tracking-widest text-coffee-500 mb-4"
+                        data-i18n="head_location">Location</h3>
+                    <p class="text-lg text-coffee-900">123 Ponsonby Road<br>Ponsonby, Auckland 1011<br>New Zealand</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold uppercase tracking-widest text-coffee-500 mb-4" data-i18n="head_hours">
+                        Hours</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li class="flex justify-between border-b border-coffee-200 pb-2">
+                            <span>Mon - Fri</span>
+                            <span>7:00am - 4:00pm</span>
+                        </li>
+                        <li class="flex justify-between border-b border-coffee-200 pb-2">
+                            <span>Saturday</span>
+                            <span>8:00am - 5:00pm</span>
+                        </li>
+                        <li class="flex justify-between border-b border-coffee-200 pb-2">
+                            <span>Sunday</span>
+                            <span>9:00am - 3:00pm</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold uppercase tracking-widest text-coffee-500 mb-4"
+                        data-i18n="head_contact">Contact</h3>
+                    <p class="text-lg">
+                        09-123-4567<br>
+                        hello@kissacafe.nz
+                    </p>
+                </div>
+            </div>
+
+            <!-- Map Placeholder / Form -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-coffee-100">
+                <h3 class="text-xl font-bold mb-6" data-i18n="form_title">Send a Message</h3>
+                <form onsubmit="event.preventDefault(); alert('Demo: Message Sent!');" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-coffee-500 mb-1" data-i18n="lbl_name">Name</label>
+                        <input type="text"
+                            class="w-full px-4 py-3 rounded bg-coffee-50 border border-coffee-200 focus:outline-none focus:border-coffee-500"
+                            required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-coffee-500 mb-1"
+                            data-i18n="lbl_message">Message</label>
+                        <textarea rows="4"
+                            class="w-full px-4 py-3 rounded bg-coffee-50 border border-coffee-200 focus:outline-none focus:border-coffee-500"
+                            required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-4 bg-coffee-800 text-white font-bold rounded hover:bg-coffee-900 transition-colors"
+                        data-i18n="btn_send">Send</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-900 text-white py-8 text-center mt-auto">
+        <div class="max-w-5xl mx-auto px-4 text-sm opacity-50">
+            &copy; 2026 Kissa Cafe.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../_shared/demo-lang.js"></script>
+    <script>
+        DemoLang.init({
+            dict: {
+                en: {
+                    nav_home: "Home",
+                    nav_menu: "Menu",
+                    nav_contact: "Contact",
+                    contact_title: "Visit Us",
+                    head_location: "Location",
+                    head_hours: "Opening Hours",
+                    head_contact: "Contact",
+                    form_title: "Send a Message",
+                    lbl_name: "Name",
+                    lbl_message: "Message",
+                    btn_send: "Send",
+                },
+                ja: {
+                    nav_home: "ホーム",
+                    nav_menu: "メニュー",
+                    nav_contact: "アクセス",
+                    contact_title: "店舗情報",
+                    head_location: "住所",
+                    head_hours: "営業時間",
+                    head_contact: "お問い合わせ",
+                    form_title: "メッセージを送る",
+                    lbl_name: "お名前",
+                    lbl_message: "お問い合わせ内容",
+                    btn_send: "送信",
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Salon | Newmarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf4ff', // Fuchsia tint
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            900: '#701a75',
+                        },
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            300: '#fda4af',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'Hiragino Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-white text-slate-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="text-3xl font-serif text-slate-900 tracking-widest"
+                    data-lang-link>LUMINA</a>
+
+                <div class="hidden md:flex space-x-12 items-center text-sm tracking-widest uppercase">
+                    <a href="index.html" class="text-brand-600 border-b border-brand-600 pb-1" data-i18n="nav_home"
+                        data-lang-link>Home</a>
+                    <a href="menu.html" class="hover:text-brand-600 transition-colors" data-i18n="nav_menu"
+                        data-lang-link>Menu</a>
+                    <a href="booking.html" class="hover:text-brand-600 transition-colors" data-i18n="nav_book"
+                        data-lang-link>Book</a>
+
+                    <div class="flex items-center space-x-3 text-xs">
+                        <button data-lang-switch="en" class="lang-btn font-bold">EN</button>
+                        <span class="text-slate-300">|</span>
+                        <button data-lang-switch="ja" class="lang-btn opacity-50">JA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="h-screen relative flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero.jpg" onerror="window.__demoFallbackImg(this, 'Elegance & Beauty', 'fdf4ff', 'c026d3')"
+                class="w-full h-full object-cover opacity-90" alt="Salon Interior">
+        </div>
+
+        <div class="relative z-10 text-center px-4 fade-in-up">
+            <span class="block text-brand-600 uppercase tracking-[0.3em] text-sm mb-6" data-i18n="hero_eyebrow">Premium
+                Hair Studio</span>
+            <h1 class="text-5xl md:text-7xl font-serif text-slate-900 mb-8 font-light" data-i18n="hero_title">Reveal
+                Your<br>True Radiance</h1>
+            <a href="booking.html"
+                class="inline-block border border-slate-900 px-10 py-4 uppercase tracking-widest text-xs hover:bg-slate-900 hover:text-white transition-all duration-300"
+                data-i18n="hero_cta" data-lang-link>Book Consultation</a>
+        </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="py-24 px-6 max-w-4xl mx-auto text-center">
+        <p class="text-2xl md:text-3xl font-serif leading-relaxed text-slate-600 italic" data-i18n="intro_text">
+            "We believe that hair is your most important accessory. Our stylists combine Japanese precision with modern
+            trends to create a look that is uniquely yours."
+        </p>
+        <div class="w-16 h-px bg-brand-300 mx-auto mt-12"></div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="max-w-7xl mx-auto px-4 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="aspect-[3/4] overflow-hidden group">
+                <img src="assets/gallery1.jpg"
+                    onerror="window.__demoFallbackImg(this, 'Cut & Style', 'fae8ff', 'c026d3')"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="mt-2 text-center text-xs tracking-widest uppercase text-slate-500">Cut & Style</div>
+            </div>
+            <div class="aspect-[3/4] overflow-hidden group md:mt-12">
+                <img src="assets/gallery2.jpg" onerror="window.__demoFallbackImg(this, 'Color', 'f5d0fe', 'c026d3')"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="mt-2 text-center text-xs tracking-widest uppercase text-slate-500">Color</div>
+            </div>
+            <div class="aspect-[3/4] overflow-hidden group">
+                <img src="assets/gallery3.jpg" onerror="window.__demoFallbackImg(this, 'Treatment', 'f0abfc', 'c026d3')"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="mt-2 text-center text-xs tracking-widest uppercase text-slate-500">Treatment</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-rose-50 text-slate-600 py-16 text-center">
+        <h3 class="font-serif text-2xl mb-6 tracking-widest">LUMINA</h3>
+        <p class="mb-8 font-light" data-i18n="footer_address">Level 1, 35 Teed Street, Newmarket</p>
+        <div class="text-xs tracking-widest uppercase opacity-60">
+            &copy; 2026 Lumina Salon. <span data-i18n="footer_credit">Designed by Toi Nishitani</span>
+        </div>
+        <div class="mt-8">
+            <a href="../../index.html"
+                class="text-xs border-b border-transparent hover:border-slate-400 transition-colors"
+                data-lang-link>Portfolio Demo</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../_shared/demo-lang.js"></script>
+    <script>
+        DemoLang.init({
+            dict: {
+                en: {
+                    nav_home: "Home",
+                    nav_menu: "Menu",
+                    nav_book: "Book",
+                    hero_eyebrow: "Premium Hair Studio",
+                    hero_title: "Reveal Your\nTrue Radiance",
+                    hero_cta: "Book Consultation",
+                    intro_text: "\"We believe that hair is your most important accessory. Our stylists combine Japanese precision with modern trends to create a look that is uniquely yours.\"",
+                    footer_address: "Level 1, 35 Teed Street, Newmarket",
+                    footer_credit: "Designed by Toi Nishitani"
+                },
+                ja: {
+                    nav_home: "ホーム",
+                    nav_menu: "メニュー",
+                    nav_book: "予約",
+                    hero_eyebrow: "プレミアムヘアスタジオ",
+                    hero_title: "あなただけの\n輝きを。",
+                    hero_cta: "予約・コンサルテーション",
+                    intro_text: "「髪は、あなたの最高のアクセサリー」\n日本の繊細な技術と最新のトレンドを融合させ、あなただけのスタイルをご提案します。",
+                    footer_address: "ニューマーケット、ティードストリート 35番地 2F",
+                    footer_credit: "Designed by Toi Nishitani"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

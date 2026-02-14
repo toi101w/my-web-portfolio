@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike's Auto Repair | Mt Wellington</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            50: '#f8fafc',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Robot', 'Hiragino Sans', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-slate-300 py-2 px-4 text-sm">
+        <div class="max-w-6xl mx-auto flex justify-between">
+            <span data-i18n="top_hours">Mon-Fri: 8am - 5:30pm</span>
+            <span class="font-bold text-teal-400">09-555-0123</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html"
+                    class="flex items-center space-x-2 text-2xl font-display font-bold text-slate-900 uppercase tracking-tighter"
+                    data-lang-link>
+                    <span class="bg-teal-500 text-white px-2 py-1 transform -skew-x-12">MIKE'S</span>
+                    <span>AUTO REPAIR</span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 items-center font-bold text-slate-700">
+                    <a href="index.html" class="hover:text-teal-600 transition-colors" data-i18n="nav_home"
+                        data-lang-link>HOME</a>
+                    <a href="services.html" class="hover:text-teal-600 transition-colors" data-i18n="nav_services"
+                        data-lang-link>SERVICES</a>
+                    <a href="booking.html"
+                        class="px-5 py-2 bg-slate-900 text-white transform -skew-x-12 hover:bg-slate-800 transition-colors"
+                        data-lang-link>
+                        <span class="block transform skew-x-12" data-i18n="nav_book">BOOK NOW</span>
+                    </a>
+
+                    <div class="flex items-center space-x-2 border-l pl-6 border-slate-200">
+                        <button data-lang-switch="en" class="lang-btn text-xs font-bold">EN</button>
+                        <span class="text-slate-300">/</span>
+                        <button data-lang-switch="ja" class="lang-btn text-xs font-bold opacity-50">JA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative bg-slate-900 text-white py-24 px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero.jpg" onerror="window.__demoFallbackImg(this, 'Mechanic at Work', '0f172a', '334155')"
+                class="w-full h-full object-cover opacity-20" alt="Auto Repair Workshop">
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto">
+            <div class="max-w-2xl">
+                <span class="inline-block py-1 px-2 bg-teal-500 text-slate-900 text-xs font-bold uppercase mb-4"
+                    data-i18n="hero_badge">Trusted Since 2010</span>
+                <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight uppercase"
+                    data-i18n="hero_title">Reliable Car Service in Mt Wellington</h1>
+                <p class="text-xl text-slate-300 mb-10 max-w-lg" data-i18n="hero_subtitle">Expert mechanics, fair
+                    prices, and quick turnaround. We fix it right the first time.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="booking.html"
+                        class="px-8 py-4 bg-teal-500 text-slate-900 font-bold uppercase tracking-wider hover:bg-teal-400 transition-colors text-center"
+                        data-i18n="btn_book" data-lang-link>Book Appointment</a>
+                    <a href="services.html"
+                        class="px-8 py-4 border-2 border-slate-600 text-white font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors text-center"
+                        data-i18n="btn_services" data-lang-link>View Services</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 border border-slate-100 rounded bg-slate-50">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="text-xl font-display font-bold mb-2 uppercase" data-i18n="feat_1_title">Expert Mechanics
+                    </h3>
+                    <p class="text-slate-600" data-i18n="feat_1_desc">Fully qualified and experienced team you can
+                        trust.</p>
+                </div>
+                <div class="p-6 border border-slate-100 rounded bg-slate-50">
+                    <div class="text-4xl mb-4">⏱️</div>
+                    <h3 class="text-xl font-display font-bold mb-2 uppercase" data-i18n="feat_2_title">Fast Service</h3>
+                    <p class="text-slate-600" data-i18n="feat_2_desc">Same-day service for most standard repairs and
+                        WOF.</p>
+                </div>
+                <div class="p-6 border border-slate-100 rounded bg-slate-50">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-display font-bold mb-2 uppercase" data-i18n="feat_3_title">Quality Parts
+                    </h3>
+                    <p class="text-slate-600" data-i18n="feat_3_desc">We use only high-quality parts with warranty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-teal-500 py-16 px-4 text-center">
+        <h2 class="text-3xl font-display font-bold text-slate-900 mb-6 uppercase" data-i18n="cta_title">Need a WOF or
+            Service?</h2>
+        <a href="booking.html"
+            class="inline-block px-10 py-4 bg-slate-900 text-white font-bold uppercase hover:bg-slate-800 transition-colors shadow-lg"
+            data-i18n="cta_btn" data-lang-link>Get a Quote</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-white font-display font-bold text-xl mb-4 uppercase">Mike's Auto Repair</h4>
+                <p>Unit 5, 200 Marua Road<br>Mt Wellington, Auckland</p>
+            </div>
+            <div>
+                <h4 class="text-white font-display font-bold text-xl mb-4 uppercase" data-i18n="footer_contact">Contact
+                </h4>
+                <p>09-555-0123<br>service@mikesauto.nz</p>
+            </div>
+            <div>
+                <h4 class="text-white font-display font-bold text-xl mb-4 uppercase" data-i18n="footer_hours">Hours</h4>
+                <p>Mon-Fri: 8am - 5:30pm<br>Sat: 9am - 12pm</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-slate-800 text-sm">
+            &copy; 2026 Mike's Auto Repair. <a href="../../index.html" class="text-teal-500 hover:text-teal-400 ml-2"
+                data-lang-link>Portfolio Demo</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../_shared/demo-lang.js"></script>
+    <script>
+        DemoLang.init({
+            dict: {
+                en: {
+                    top_hours: "Mon-Fri: 8am - 5:30pm",
+                    nav_home: "HOME",
+                    nav_services: "SERVICES",
+                    nav_book: "BOOK NOW",
+                    hero_badge: "Trusted Since 2010",
+                    hero_title: "Reliable Car Service in Mt Wellington",
+                    hero_subtitle: "Expert mechanics, fair prices, and quick turnaround. We fix it right the first time.",
+                    btn_book: "Book Appointment",
+                    btn_services: "View Services",
+                    feat_1_title: "Expert Mechanics",
+                    feat_1_desc: "Fully qualified and experienced team you can trust.",
+                    feat_2_title: "Fast Service",
+                    feat_2_desc: "Same-day service for most standard repairs and WOF.",
+                    feat_3_title: "Quality Parts",
+                    feat_3_desc: "We use only high-quality parts with warranty.",
+                    cta_title: "Need a WOF or Service?",
+                    cta_btn: "Get a Quote",
+                    footer_contact: "Contact",
+                    footer_hours: "Hours"
+                },
+                ja: {
+                    top_hours: "平日: 8:00 - 17:30",
+                    nav_home: "ホーム",
+                    nav_services: "サービス",
+                    nav_book: "予約する",
+                    hero_badge: "創業2010年の信頼",
+                    hero_title: "マウントウェリントンの確かな自動車整備",
+                    hero_subtitle: "熟練のメカニックが、適正価格で迅速に対応します。確実な修理をお約束します。",
+                    btn_book: "予約・見積もり",
+                    btn_services: "サービス一覧",
+                    feat_1_title: "熟練メカニック",
+                    feat_1_desc: "経験豊富な資格保有者が責任を持って担当します。",
+                    feat_2_title: "迅速な対応",
+                    feat_2_desc: "一般的な修理やWOF（車検）は即日対応可能です。",
+                    feat_3_title: "高品質パーツ",
+                    feat_3_desc: "保証付きの高品質な部品のみを使用しています。",
+                    cta_title: "WOFや点検が必要ですか？",
+                    cta_btn: "見積もりを依頼",
+                    footer_contact: "お問い合わせ",
+                    footer_hours: "営業時間"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

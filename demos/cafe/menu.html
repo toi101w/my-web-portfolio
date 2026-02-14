@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Kissa Cafe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fcf8f5',
+                            100: '#f7efe9',
+                            500: '#a36d4f',
+                            800: '#78350f',
+                            900: '#451a03',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'Hiragino Sans', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Quicksand:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-coffee-50 text-coffee-900 font-sans">
+
+    <!-- Navbar (Same as Index) -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-coffee-100 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-2xl font-serif italic text-coffee-800" data-lang-link>Kissa Cafe</a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="font-medium hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_home" data-lang-link>Home</a>
+                    <a href="menu.html" class="font-bold text-coffee-800" data-i18n="nav_menu" data-lang-link>Menu</a>
+                    <a href="contact.html" class="font-medium hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_contact" data-lang-link>Contact</a>
+                    <div class="flex items-center space-x-2 border-l pl-6 border-coffee-100">
+                        <button data-lang-switch="en" class="lang-btn text-xs font-bold font-serif">EN</button>
+                        <span class="text-coffee-200">/</span>
+                        <button data-lang-switch="ja"
+                            class="lang-btn text-xs font-bold font-serif opacity-50">JA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <h1 class="text-4xl text-center font-serif italic mb-16 text-coffee-800" data-i18n="menu_title">Our Menu</h1>
+
+        <!-- Coffee Section -->
+        <div class="mb-16">
+            <h2 class="text-xl font-bold border-b-2 border-coffee-200 pb-2 mb-8 uppercase tracking-widest text-coffee-800"
+                data-i18n="cat_coffee">Coffee</h2>
+
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Item 1 -->
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-lg font-bold" data-i18n="item_drip">Hand Drip</h3>
+                        <p class="text-sm text-coffee-500 italic" data-i18n="desc_drip">Single origin beans of the day
+                        </p>
+                    </div>
+                    <span class="text-lg font-serif">$6.00</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-lg font-bold" data-i18n="item_latte">Cafe Latte</h3>
+                        <p class="text-sm text-coffee-500 italic" data-i18n="desc_latte">Double shot espresso & silky
+                            milk</p>
+                    </div>
+                    <span class="text-lg font-serif">$5.50</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-lg font-bold" data-i18n="item_cold">Cold Brew</h3>
+                        <p class="text-sm text-coffee-500 italic" data-i18n="desc_cold">Steeped for 12 hours</p>
+                    </div>
+                    <span class="text-lg font-serif">$6.50</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-lg font-bold" data-i18n="item_matcha">Matcha Latte</h3>
+                        <p class="text-sm text-coffee-500 italic" data-i18n="desc_matcha">Kyoto Uji matcha with oat milk
+                        </p>
+                    </div>
+                    <span class="text-lg font-serif">$7.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food Section -->
+        <div class="mb-16">
+            <h2 class="text-xl font-bold border-b-2 border-coffee-200 pb-2 mb-8 uppercase tracking-widest text-coffee-800"
+                data-i18n="cat_food">Food & Pastries</h2>
+
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Item 1 -->
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-lg font-bold" data-i18n="item_toast">Ogura Toast</h3>
+                        <p class="text-sm text-coffee-500 italic" data-i18n="desc_toast">Thick toast with red bean paste
+                            & butter</p>
+                    </div>
+                    <span class="text-lg font-serif">$12.00</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-lg font-bold" data-i18n="item_pudding">Classic Pudding</h3>
+                        <p class="text-sm text-coffee-500 italic" data-i18n="desc_pudding">Firm custard pudding with
+                            caramel</p>
+                    </div>
+                    <span class="text-lg font-serif">$9.00</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-lg font-bold" data-i18n="item_sand">Egg Sandwich</h3>
+                        <p class="text-sm text-coffee-500 italic" data-i18n="desc_sand">Fluffy Japanese style egg salad
+                        </p>
+                    </div>
+                    <span class="text-lg font-serif">$14.00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12 p-8 bg-coffee-100 rounded-lg">
+            <p class="text-lg font-serif italic mb-4" data-i18n="dietary_note">We use Organic Milk. Oat and Soy options
+                available +$0.50.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-900 text-white py-8 text-center">
+        <div class="max-w-5xl mx-auto px-4 text-sm opacity-50">
+            &copy; 2026 Kissa Cafe.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../_shared/demo-lang.js"></script>
+    <script>
+        DemoLang.init({
+            dict: {
+                en: {
+                    nav_home: "Home",
+                    nav_menu: "Menu",
+                    nav_contact: "Contact",
+                    menu_title: "Our Menu",
+
+                    cat_coffee: "Coffee",
+                    item_drip: "Hand Drip",
+                    desc_drip: "Single origin beans of the day",
+                    item_latte: "Cafe Latte",
+                    desc_latte: "Double shot espresso & silky milk",
+                    item_cold: "Cold Brew",
+                    desc_cold: "Steeped for 12 hours",
+                    item_matcha: "Matcha Latte",
+                    desc_matcha: "Kyoto Uji matcha with oat milk",
+
+                    cat_food: "Food & Pastries",
+                    item_toast: "Ogura Toast",
+                    desc_toast: "Thick toast with red bean paste & butter",
+                    item_pudding: "Classic Pudding",
+                    desc_pudding: "Firm custard pudding with caramel",
+                    item_sand: "Egg Sandwich",
+                    desc_sand: "Fluffy Japanese style egg salad",
+
+                    dietary_note: "We use Organic Milk. Oat and Soy options available +$0.50."
+                },
+                ja: {
+                    nav_home: "ホーム",
+                    nav_menu: "メニュー",
+                    nav_contact: "アクセス",
+                    menu_title: "メニュー",
+
+                    cat_coffee: "Coffee",
+                    item_drip: "ハンドドリップ",
+                    desc_drip: "本日のシングルオリジン",
+                    item_latte: "カフェラテ",
+                    desc_latte: "ダブルショットエスプレッソとシルキーミルク",
+                    item_cold: "コールドブリュー",
+                    desc_cold: "12時間かけて水出し抽出",
+                    item_matcha: "抹茶ラテ",
+                    desc_matcha: "京都宇治抹茶とオーツミルク使用",
+
+                    cat_food: "Food & Pastries",
+                    item_toast: "小倉トースト",
+                    desc_toast: "厚切りトースト、自家製あんこ、バター",
+                    item_pudding: "クラシックプリン",
+                    desc_pudding: "昔ながらの固めカスタードプリン",
+                    item_sand: "たまごサンド",
+                    desc_sand: "ふわふわの出し巻き卵サンドイッチ",
+
+                    dietary_note: "オーガニック牛乳を使用しています。オーツ・ソイへの変更 +$0.50"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

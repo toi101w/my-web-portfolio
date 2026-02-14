@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Lumina Salon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf4ff', // Fuchsia tint
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            900: '#701a75',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'Hiragino Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-white text-slate-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="text-3xl font-serif text-slate-900 tracking-widest"
+                    data-lang-link>LUMINA</a>
+
+                <div class="hidden md:flex space-x-12 items-center text-sm tracking-widest uppercase">
+                    <a href="index.html" class="hover:text-brand-600 transition-colors" data-i18n="nav_home"
+                        data-lang-link>Home</a>
+                    <a href="menu.html" class="text-brand-600 border-b border-brand-600 pb-1" data-i18n="nav_menu"
+                        data-lang-link>Menu</a>
+                    <a href="booking.html" class="hover:text-brand-600 transition-colors" data-i18n="nav_book"
+                        data-lang-link>Book</a>
+
+                    <div class="flex items-center space-x-3 text-xs">
+                        <button data-lang-switch="en" class="lang-btn font-bold">EN</button>
+                        <span class="text-slate-300">|</span>
+                        <button data-lang-switch="ja" class="lang-btn opacity-50">JA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-24 max-w-3xl mx-auto px-6">
+        <h1 class="text-4xl font-serif text-center mb-16 tracking-wide" data-i18n="menu_title">Our Services</h1>
+
+        <!-- Cuts -->
+        <div class="mb-16">
+            <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-brand-600 mb-8 border-b border-brand-100 pb-4"
+                data-i18n="cat_cut">Cut & Styling</h2>
+            <dl class="space-y-6">
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Director Cut</dt>
+                    <div class="flex-grow mx-4 border-b border-dotted border-slate-300 relative top-[-6px] opacity-30">
+                    </div>
+                    <dd class="text-lg font-light">$120</dd>
+                </div>
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Stylist Cut</dt>
+                    <div class="flex-grow mx-4 border-b border-dotted border-slate-300 relative top-[-6px] opacity-30">
+                    </div>
+                    <dd class="text-lg font-light">$95</dd>
+                </div>
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Fringe Cut</dt>
+                    <div class="flex-grow mx-4 border-b border-dotted border-slate-300 relative top-[-6px] opacity-30">
+                    </div>
+                    <dd class="text-lg font-light">$25</dd>
+                </div>
+                <p class="text-sm text-slate-500 italic mt-2" data-i18n="inc_shampoo">Includes shampoo and blow dry.</p>
+            </dl>
+        </div>
+
+        <!-- Color -->
+        <div class="mb-16">
+            <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-brand-600 mb-8 border-b border-brand-100 pb-4"
+                data-i18n="cat_color">Color</h2>
+            <dl class="space-y-6">
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Full Color</dt>
+                    <div class="flex-grow mx-4 border-b border-dotted border-slate-300 relative top-[-6px] opacity-30">
+                    </div>
+                    <dd class="text-lg font-light">$150+</dd>
+                </div>
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Retouch</dt>
+                    <div class="flex-grow mx-4 border-b border-dotted border-slate-300 relative top-[-6px] opacity-30">
+                    </div>
+                    <dd class="text-lg font-light">$110</dd>
+                </div>
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Balayage / Ombre</dt>
+                    <div class="flex-grow mx-4 border-b border-dotted border-slate-300 relative top-[-6px] opacity-30">
+                    </div>
+                    <dd class="text-lg font-light">$220+</dd>
+                </div>
+            </dl>
+        </div>
+
+        <!-- Treatment -->
+        <div class="mb-16">
+            <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-brand-600 mb-8 border-b border-brand-100 pb-4"
+                data-i18n="cat_spa">Head Spa & Treatment</h2>
+            <dl class="space-y-6">
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Tokio Inkarami Treatment</dt>
+                    <dd class="text-lg font-light">$130</dd>
+                </div>
+                <div class="flex justify-between items-baseline group">
+                    <dt class="text-lg font-serif">Scalp Detox Spa (30min)</dt>
+                    <dd class="text-lg font-light">$65</dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="booking.html"
+                class="inline-block bg-brand-50 text-brand-900 border border-brand-200 px-10 py-4 uppercase tracking-widest text-xs hover:bg-white transition-all duration-300"
+                data-i18n="cta_book" data-lang-link>Book Appointment</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-slate-400 py-12 text-center text-xs tracking-widest">
+        &copy; 2026 Lumina Salon.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../_shared/demo-lang.js"></script>
+    <script>
+        DemoLang.init({
+            dict: {
+                en: {
+                    nav_home: "Home",
+                    nav_menu: "Menu",
+                    nav_book: "Book",
+                    menu_title: "Our Services",
+                    cat_cut: "Cut & Styling",
+                    inc_shampoo: "Includes shampoo and blow dry.",
+                    cat_color: "Color",
+                    cat_spa: "Head Spa & Treatment",
+                    cta_book: "Book Appointment"
+                },
+                ja: {
+                    nav_home: "ホーム",
+                    nav_menu: "メニュー",
+                    nav_book: "予約",
+                    menu_title: "メニュー",
+                    cat_cut: "カット・スタイリング",
+                    inc_shampoo: "シャンプー・ブロー込み",
+                    cat_color: "カラー",
+                    cat_spa: "ヘッドスパ・トリートメント",
+                    cta_book: "予約する"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

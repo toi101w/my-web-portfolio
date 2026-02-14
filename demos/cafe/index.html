@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kissa Cafe | Auckland</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fcf8f5',
+                            100: '#f7efe9',
+                            500: '#a36d4f',
+                            800: '#78350f',
+                            900: '#451a03',
+                        },
+                        cream: '#fef3c7',
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'Hiragino Sans', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Quicksand:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-coffee-50 text-coffee-900 font-sans">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-coffee-100 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-2xl font-serif italic text-coffee-800" data-lang-link>Kissa Cafe</a>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="font-medium hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_home" data-lang-link>Home</a>
+                    <a href="menu.html" class="font-medium hover:text-coffee-500 transition-colors" data-i18n="nav_menu"
+                        data-lang-link>Menu</a>
+                    <a href="contact.html" class="font-medium hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_contact" data-lang-link>Contact</a>
+
+                    <div class="flex items-center space-x-2 border-l pl-6 border-coffee-100">
+                        <button data-lang-switch="en" class="lang-btn text-xs font-bold font-serif">EN</button>
+                        <span class="text-coffee-200">/</span>
+                        <button data-lang-switch="ja"
+                            class="lang-btn text-xs font-bold font-serif opacity-50">JA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero.jpg" onerror="window.__demoFallbackImg(this, 'Fresh Coffee & Vibes', '2a1c15', 'fff')"
+                class="w-full h-full object-cover opacity-90" alt="Cafe Hero">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-serif italic mb-6" data-i18n="hero_title">Morning Brew</h1>
+            <p class="text-xl md:text-2xl font-light mb-10 max-w-lg mx-auto" data-i18n="hero_subtitle">Artisan coffee
+                and homemade pastries in the heart of Auckland.</p>
+            <a href="menu.html"
+                class="inline-block bg-white text-coffee-900 px-8 py-4 rounded-full font-semibold hover:bg-cream transition-colors"
+                data-i18n="hero_cta" data-lang-link>View Menu</a>
+        </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="text-coffee-500 uppercase tracking-widest text-sm font-bold" data-i18n="intro_label">Our
+                Story</span>
+            <h2 class="text-3xl md:text-4xl font-serif mt-4 mb-8 text-coffee-800" data-i18n="intro_heading">A quiet
+                place for your daily ritual.</h2>
+            <p class="text-lg leading-relaxed text-coffee-800/80 mb-6" data-i18n="intro_text">
+                Established in 2024, Kissa Cafe brings a touch of Japanese kissaten culture to New Zealand. We believe
+                in slow coffee, jazz music, and moments of calm in a busy day.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="aspect-square bg-coffee-100 rounded-lg overflow-hidden">
+                    <img src="assets/feature1.jpg"
+                        onerror="window.__demoFallbackImg(this, 'Pour Over', 'd6c0b3', '555')"
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square bg-coffee-100 rounded-lg overflow-hidden">
+                    <img src="assets/feature2.jpg"
+                        onerror="window.__demoFallbackImg(this, 'Fresh Pastries', 'eaddd0', '555')"
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-900 text-white py-12 text-center">
+        <div class="max-w-5xl mx-auto px-4">
+            <h3 class="font-serif text-2xl italic mb-4">Kissa Cafe</h3>
+            <p class="opacity-80 mb-8" data-i18n="footer_address">123 Ponsonby Road, Auckland</p>
+            <div class="text-sm opacity-50">
+                &copy; 2026 Kissa Cafe. <span data-i18n="footer_credit">Designed by Toi Nishitani.</span>
+            </div>
+
+            <div class="mt-8 border-t border-white/10 pt-8">
+                <a href="../../index.html" class="text-xs text-white/40 hover:text-white transition-colors"
+                    data-lang-link>← Back to Portfolio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../_shared/demo-lang.js"></script>
+    <script>
+        DemoLang.init({
+            dict: {
+                en: {
+                    nav_home: "Home",
+                    nav_menu: "Menu",
+                    nav_contact: "Contact",
+                    hero_title: "Morning Brew",
+                    hero_subtitle: "Artisan coffee and homemade pastries in the heart of Auckland.",
+                    hero_cta: "View Menu",
+                    intro_label: "Our Story",
+                    intro_heading: "A quiet place for your daily ritual.",
+                    intro_text: "Established in 2024, Kissa Cafe brings a touch of Japanese kissaten culture to New Zealand. We believe in slow coffee, jazz music, and moments of calm in a busy day. Come in, maximize your productivity, or just relax.",
+                    footer_address: "123 Ponsonby Road, Auckland",
+                    footer_credit: "Designed by Toi Nishitani."
+                },
+                ja: {
+                    nav_home: "ホーム",
+                    nav_menu: "メニュー",
+                    nav_contact: "アクセス",
+                    hero_title: "極上の一杯を",
+                    hero_subtitle: "オークランドの中心で味わう、職人のコーヒーと自家製ペストリー。",
+                    hero_cta: "メニューを見る",
+                    intro_label: "当店のこだわり",
+                    intro_heading: "日常に、静かなひとときを。",
+                    intro_text: "2024年創業のKissa Cafeは、日本の純喫茶文化をニュージーランドに届けます。丁寧に淹れたコーヒー、流れるジャズ、忙しい日々の中での安らぎの時間。仕事に集中したい時も、リラックスしたい時も、ぜひお立ち寄りください。",
+                    footer_address: "オークランド・ポンソンビー通り 123番地",
+                    footer_credit: "Designed by Toi Nishitani."
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
