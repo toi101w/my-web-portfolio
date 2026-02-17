@@ -5,7 +5,7 @@
 const DemoLang = {
   // Current language state
   currentLang: 'en',
-  
+
   // Dictionary storage
   dict: {},
 
@@ -16,18 +16,23 @@ const DemoLang = {
    */
   init({ dict }) {
     this.dict = dict;
-    
+
+    // 辞書から有効な言語コードを動的に取得（'en', 'cn', 'kr' など何でも対応）
+    const validLangs = Object.keys(dict);
+    const secondLang = validLangs.find(l => l !== 'en') || 'en';
+
     // 1. Detect Language Priority: URL param > localStorage > Browser > Default (en)
     const urlParams = new URLSearchParams(window.location.search);
     const urlLang = urlParams.get('lang');
     const storedLang = localStorage.getItem('demoLang');
-    const browserLang = (navigator.language || navigator.userLanguage || 'en').startsWith('ja') ? 'ja' : 'en';
 
-    // Validate language (only 'en' or 'ja' allowed)
-    const validLangs = ['en', 'ja'];
-    this.currentLang = validLangs.includes(urlLang) ? urlLang 
-                     : validLangs.includes(storedLang) ? storedLang 
-                     : browserLang;
+    // ブラウザ言語からマッチする言語を検出
+    const browserPrefix = (navigator.language || navigator.userLanguage || 'en').slice(0, 2).toLowerCase();
+    const browserLang = validLangs.includes(browserPrefix) ? browserPrefix : 'en';
+
+    this.currentLang = validLangs.includes(urlLang) ? urlLang
+      : validLangs.includes(storedLang) ? storedLang
+        : browserLang;
 
     // 2. Apply Language
     this.applyLang(this.currentLang);
@@ -35,7 +40,7 @@ const DemoLang = {
     // 3. Setup Event Listeners & Link Updates
     this.attachListeners();
     this.updateLinks(this.currentLang);
-    
+
     // 4. Update HTML lang attribute
     document.documentElement.lang = this.currentLang;
   },
@@ -54,9 +59,9 @@ const DemoLang = {
       if (this.dict[lang] && this.dict[lang][key]) {
         // Handle HTML content if key ends with '_html', otherwise textContent
         if (key.endsWith('_html')) {
-            el.innerHTML = this.dict[lang][key];
+          el.innerHTML = this.dict[lang][key];
         } else {
-            el.textContent = this.dict[lang][key];
+          el.textContent = this.dict[lang][key];
         }
       }
     });
@@ -68,23 +73,24 @@ const DemoLang = {
         el.placeholder = this.dict[lang][key];
       }
     });
-    
-    // Toggle active state on switcher buttons if they exist
+
+    // 言語スイッチャーのアクティブ状態を切り替え
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        if (btn.dataset.lang === lang) {
-            btn.classList.add('font-bold', 'underline');
-            btn.classList.remove('opacity-50');
-        } else {
-            btn.classList.remove('font-bold', 'underline');
-            btn.classList.add('opacity-50');
-        }
+      const btnLang = btn.dataset.langSwitch || btn.dataset.lang;
+      if (btnLang === lang) {
+        btn.classList.add('font-bold');
+        btn.classList.remove('opacity-50');
+      } else {
+        btn.classList.remove('font-bold');
+        btn.classList.add('opacity-50');
+      }
     });
 
     // Update URL without reloading (cleaner UX)
     const newUrl = new URL(window.location);
     newUrl.searchParams.set('lang', lang);
     window.history.replaceState({}, '', newUrl);
-    
+
     // Update all internal links to persist language
     this.updateLinks(lang);
   },
@@ -113,8 +119,8 @@ const DemoLang = {
         const url = new URL(a.href, window.location.href);
         // Only update if it's a relative link or same origin
         if (url.origin === window.location.origin) {
-            url.searchParams.set('lang', lang);
-            a.href = url.toString();
+          url.searchParams.set('lang', lang);
+          a.href = url.toString();
         }
       } catch (e) {
         // Ignore invalid URLs
@@ -128,21 +134,21 @@ const DemoLang = {
  * Image Fallback Utility via SVG
  * Generates a placeholder image if the source image fails to load.
  */
-window.__demoFallbackImg = function(img, text = 'Image', bg = 'eee', fg = '555') {
-    // Prevent infinite loop if fallback also fails
-    img.onerror = null;
-    
-    const svg = `
+window.__demoFallbackImg = function (img, text = 'Image', bg = 'eee', fg = '555') {
+  // Prevent infinite loop if fallback also fails
+  img.onerror = null;
+
+  const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="none">
         <rect width="400" height="300" fill="#${bg}"/>
         <text x="50%" y="50%" font-family="sans-serif" font-size="24" fill="#${fg}" text-anchor="middle" dy=".3em">${text}</text>
     </svg>`;
-    
-    const encoded = encodeURIComponent(svg)
-        .replace(/'/g, '%27')
-        .replace(/"/g, '%22');
-        
-    img.src = `data:image/svg+xml;charset=utf-8,${encoded}`;
+
+  const encoded = encodeURIComponent(svg)
+    .replace(/'/g, '%27')
+    .replace(/"/g, '%22');
+
+  img.src = `data:image/svg+xml;charset=utf-8,${encoded}`;
 };
 
 // Expose to window

@@ -12,21 +12,19 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#fdf4ff', // Fuchsia tint
+                            50: '#fdf4ff',
                             100: '#fae8ff',
                             200: '#f5d0fe',
+                            300: '#f0abfc',
                             500: '#d946ef',
                             600: '#c026d3',
                             900: '#701a75',
                         },
-                        rose: {
-                            50: '#fff1f2',
-                            100: '#ffe4e6',
-                            300: '#fda4af',
-                        }
+                        rose: { 50: '#fff1f2', 100: '#ffe4e6', 300: '#fda4af' }
                     },
                     fontFamily: {
-                        sans: ['Lato', 'Hiragino Sans', 'sans-serif'],
+                        /* Noto Sans KR（韓国語）を追加 */
+                        sans: ['Lato', 'Noto Sans KR', 'Hiragino Sans', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
                     }
                 }
@@ -34,7 +32,7 @@
         }
     </script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@300;400;700&display=swap"
         rel="stylesheet">
 </head>
 
@@ -58,7 +56,7 @@
                     <div class="flex items-center space-x-3 text-xs">
                         <button data-lang-switch="en" class="lang-btn font-bold">EN</button>
                         <span class="text-slate-300">|</span>
-                        <button data-lang-switch="ja" class="lang-btn opacity-50">JA</button>
+                        <button data-lang-switch="kr" class="lang-btn opacity-50">KR</button>
                     </div>
                 </div>
             </div>
@@ -72,7 +70,7 @@
                 class="w-full h-full object-cover opacity-90" alt="Salon Interior">
         </div>
 
-        <div class="relative z-10 text-center px-4 fade-in-up">
+        <div class="relative z-10 text-center px-4">
             <span class="block text-brand-600 uppercase tracking-[0.3em] text-sm mb-6" data-i18n="hero_eyebrow">Premium
                 Hair Studio</span>
             <h1 class="text-5xl md:text-7xl font-serif text-slate-900 mb-8 font-light" data-i18n="hero_title">Reveal
@@ -144,15 +142,15 @@
                     footer_address: "Level 1, 35 Teed Street, Newmarket",
                     footer_credit: "Designed by Toi Nishitani"
                 },
-                ja: {
-                    nav_home: "ホーム",
-                    nav_menu: "メニュー",
-                    nav_book: "予約",
-                    hero_eyebrow: "プレミアムヘアスタジオ",
-                    hero_title: "あなただけの\n輝きを。",
-                    hero_cta: "予約・コンサルテーション",
-                    intro_text: "「髪は、あなたの最高のアクセサリー」\n日本の繊細な技術と最新のトレンドを融合させ、あなただけのスタイルをご提案します。",
-                    footer_address: "ニューマーケット、ティードストリート 35番地 2F",
+                kr: {
+                    nav_home: "홈",
+                    nav_menu: "메뉴",
+                    nav_book: "예약",
+                    hero_eyebrow: "프리미엄 헤어 스튜디오",
+                    hero_title: "당신만의\n빛나는 아름다움",
+                    hero_cta: "상담 예약",
+                    intro_text: "\"머리카락은 당신의 가장 소중한 액세서리입니다.\" 일본의 섬세한 기술과 최신 트렌드를 결합하여, 오직 당신만을 위한 스타일을 제안합니다.",
+                    footer_address: "뉴마켓, 티드 스트리트 35번지 2층",
                     footer_credit: "Designed by Toi Nishitani"
                 }
             }

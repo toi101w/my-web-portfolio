@@ -11,20 +11,11 @@
             theme: {
                 extend: {
                     colors: {
-                        slate: {
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155',
-                            50: '#f8fafc',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                        }
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155', 50: '#f8fafc' },
+                        teal: { 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488' }
                     },
                     fontFamily: {
-                        sans: ['Robot', 'Hiragino Sans', 'sans-serif'],
+                        sans: ['Roboto', 'Noto Sans SC', 'Hiragino Sans', 'sans-serif'],
                         display: ['Oswald', 'sans-serif'],
                     }
                 }
@@ -32,7 +23,7 @@
         }
     </script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
         rel="stylesheet">
 </head>
 
@@ -60,7 +51,7 @@
                     <div class="flex items-center space-x-2 border-l pl-6 border-slate-200">
                         <button data-lang-switch="en" class="lang-btn text-xs font-bold">EN</button>
                         <span class="text-slate-300">/</span>
-                        <button data-lang-switch="ja" class="lang-btn text-xs font-bold opacity-50">JA</button>
+                        <button data-lang-switch="cn" class="lang-btn text-xs font-bold opacity-50">CN</button>
                     </div>
                 </div>
             </div>
@@ -76,7 +67,6 @@
     <main class="max-w-4xl mx-auto px-4 py-16">
         <div class="space-y-8">
 
-            <!-- Service 1 -->
             <div
                 class="bg-white p-8 border-l-4 border-teal-500 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center">
                 <div class="mb-4 md:mb-0">
@@ -92,7 +82,6 @@
                 </div>
             </div>
 
-            <!-- Service 2 -->
             <div
                 class="bg-white p-8 border-l-4 border-teal-500 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center">
                 <div class="mb-4 md:mb-0">
@@ -102,12 +91,11 @@
                         20-point safety check.</p>
                 </div>
                 <div class="text-right">
-                    <span class="block text-sm text-slate-500">from</span>
+                    <span class="block text-sm text-slate-500" data-i18n="price_from">from</span>
                     <span class="block text-2xl font-bold text-slate-900">$180</span>
                 </div>
             </div>
 
-            <!-- Service 3 -->
             <div
                 class="bg-white p-8 border-l-4 border-teal-500 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center">
                 <div class="mb-4 md:mb-0">
@@ -121,7 +109,6 @@
                 </div>
             </div>
 
-            <!-- Service 4 -->
             <div
                 class="bg-white p-8 border-l-4 border-teal-500 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center">
                 <div class="mb-4 md:mb-0">
@@ -153,7 +140,6 @@
                     nav_services: "SERVICES",
                     nav_book: "BOOK NOW",
                     page_title: "Our Services",
-
                     svc_wof_title: "WOF Inspection",
                     svc_wof_desc: "Comprehensive Warrant of Fitness inspection. Fast and fair.",
                     svc_oil_title: "Oil Change & Service",
@@ -162,23 +148,24 @@
                     svc_brake_desc: "Pad replacement, rotor resurfacing/replacement.",
                     svc_diag_title: "Diagnostics",
                     svc_diag_desc: "Check engine light? We use modern scan tools to find the fault.",
+                    price_from: "from",
                     price_quote: "Quote Required"
                 },
-                ja: {
-                    nav_home: "ホーム",
-                    nav_services: "サービス",
-                    nav_book: "予約する",
-                    page_title: "サービス一覧",
-
-                    svc_wof_title: "WOF車検",
-                    svc_wof_desc: "Warrant of Fitness（車検）の検査を行います。迅速かつ適正に。",
-                    svc_oil_title: "オイル交換・点検",
-                    svc_oil_desc: "全合成油使用、フィルター交換、20項目の安全点検込み。",
-                    svc_brake_title: "ブレーキ修理",
-                    svc_brake_desc: "ブレーキパッド交換、ローター研磨・交換など。",
-                    svc_diag_title: "故障診断",
-                    svc_diag_desc: "エンジンの不調やチェックランプの点灯など、最新のスキャンツールで原因を特定します。",
-                    price_quote: "要見積もり"
+                cn: {
+                    nav_home: "首页",
+                    nav_services: "服务项目",
+                    nav_book: "立即预约",
+                    page_title: "服务项目",
+                    svc_wof_title: "WOF年检",
+                    svc_wof_desc: "全面的WOF年检服务，快速、公正。",
+                    svc_oil_title: "换油保养",
+                    svc_oil_desc: "全合成机油、滤芯更换及20项安全检查。",
+                    svc_brake_title: "刹车维修",
+                    svc_brake_desc: "刹车片更换、刹车盘修复/更换。",
+                    svc_diag_title: "故障诊断",
+                    svc_diag_desc: "发动机故障灯亮了？我们使用专业诊断设备精准定位故障。",
+                    price_from: "起",
+                    price_quote: "需报价"
                 }
             }
         });

@@ -11,20 +11,12 @@
             theme: {
                 extend: {
                     colors: {
-                        slate: {
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155',
-                            50: '#f8fafc',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                        }
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155', 50: '#f8fafc' },
+                        teal: { 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488' }
                     },
                     fontFamily: {
-                        sans: ['Robot', 'Hiragino Sans', 'sans-serif'],
+                        /* Noto Sans SC（簡体字中国語）を追加 */
+                        sans: ['Roboto', 'Noto Sans SC', 'Hiragino Sans', 'sans-serif'],
                         display: ['Oswald', 'sans-serif'],
                     }
                 }
@@ -32,7 +24,7 @@
         }
     </script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
         rel="stylesheet">
 </head>
 
@@ -41,7 +33,7 @@
     <!-- Top Bar -->
     <div class="bg-slate-900 text-slate-300 py-2 px-4 text-sm">
         <div class="max-w-6xl mx-auto flex justify-between">
-            <span data-i18n="top_hours">Mon-Fri: 8am - 5:30pm</span>
+            <span data-i18n="top_hours">Mon–Fri: 8am – 5:30pm</span>
             <span class="font-bold text-teal-400">09-555-0123</span>
         </div>
     </div>
@@ -71,7 +63,7 @@
                     <div class="flex items-center space-x-2 border-l pl-6 border-slate-200">
                         <button data-lang-switch="en" class="lang-btn text-xs font-bold">EN</button>
                         <span class="text-slate-300">/</span>
-                        <button data-lang-switch="ja" class="lang-btn text-xs font-bold opacity-50">JA</button>
+                        <button data-lang-switch="cn" class="lang-btn text-xs font-bold opacity-50">CN</button>
                     </div>
                 </div>
             </div>
@@ -155,7 +147,7 @@
             </div>
             <div>
                 <h4 class="text-white font-display font-bold text-xl mb-4 uppercase" data-i18n="footer_hours">Hours</h4>
-                <p>Mon-Fri: 8am - 5:30pm<br>Sat: 9am - 12pm</p>
+                <p>Mon–Fri: 8am – 5:30pm<br>Sat: 9am – 12pm</p>
             </div>
         </div>
         <div class="text-center mt-12 pt-8 border-t border-slate-800 text-sm">
@@ -170,7 +162,7 @@
         DemoLang.init({
             dict: {
                 en: {
-                    top_hours: "Mon-Fri: 8am - 5:30pm",
+                    top_hours: "Mon–Fri: 8am – 5:30pm",
                     nav_home: "HOME",
                     nav_services: "SERVICES",
                     nav_book: "BOOK NOW",
@@ -190,26 +182,26 @@
                     footer_contact: "Contact",
                     footer_hours: "Hours"
                 },
-                ja: {
-                    top_hours: "平日: 8:00 - 17:30",
-                    nav_home: "ホーム",
-                    nav_services: "サービス",
-                    nav_book: "予約する",
-                    hero_badge: "創業2010年の信頼",
-                    hero_title: "マウントウェリントンの確かな自動車整備",
-                    hero_subtitle: "熟練のメカニックが、適正価格で迅速に対応します。確実な修理をお約束します。",
-                    btn_book: "予約・見積もり",
-                    btn_services: "サービス一覧",
-                    feat_1_title: "熟練メカニック",
-                    feat_1_desc: "経験豊富な資格保有者が責任を持って担当します。",
-                    feat_2_title: "迅速な対応",
-                    feat_2_desc: "一般的な修理やWOF（車検）は即日対応可能です。",
-                    feat_3_title: "高品質パーツ",
-                    feat_3_desc: "保証付きの高品質な部品のみを使用しています。",
-                    cta_title: "WOFや点検が必要ですか？",
-                    cta_btn: "見積もりを依頼",
-                    footer_contact: "お問い合わせ",
-                    footer_hours: "営業時間"
+                cn: {
+                    top_hours: "周一至周五: 8:00 – 17:30",
+                    nav_home: "首页",
+                    nav_services: "服务项目",
+                    nav_book: "立即预约",
+                    hero_badge: "值得信赖 · 始于2010",
+                    hero_title: "Mt Wellington 专业汽车维修",
+                    hero_subtitle: "经验丰富的技师团队，价格公道，维修高效。一次修好，让您安心。",
+                    btn_book: "预约维修",
+                    btn_services: "查看服务",
+                    feat_1_title: "专业技师",
+                    feat_1_desc: "持证上岗，经验丰富，值得信赖。",
+                    feat_2_title: "快速服务",
+                    feat_2_desc: "大部分常规维修及WOF检测当日完成。",
+                    feat_3_title: "优质配件",
+                    feat_3_desc: "仅使用带保修的高品质配件。",
+                    cta_title: "需要WOF检测或维修服务？",
+                    cta_btn: "获取报价",
+                    footer_contact: "联系方式",
+                    footer_hours: "营业时间"
                 }
             }
         });

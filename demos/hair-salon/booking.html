@@ -12,7 +12,7 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#fdf4ff', // Fuchsia tint
+                            50: '#fdf4ff',
                             100: '#fae8ff',
                             200: '#f5d0fe',
                             500: '#d946ef',
@@ -21,7 +21,7 @@
                         },
                     },
                     fontFamily: {
-                        sans: ['Lato', 'Hiragino Sans', 'sans-serif'],
+                        sans: ['Lato', 'Noto Sans KR', 'Hiragino Sans', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
                     }
                 }
@@ -29,7 +29,7 @@
         }
     </script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@300;400;700&display=swap"
         rel="stylesheet">
 </head>
 
@@ -53,7 +53,7 @@
                     <div class="flex items-center space-x-3 text-xs">
                         <button data-lang-switch="en" class="lang-btn font-bold">EN</button>
                         <span class="text-slate-300">|</span>
-                        <button data-lang-switch="ja" class="lang-btn opacity-50">JA</button>
+                        <button data-lang-switch="kr" class="lang-btn opacity-50">KR</button>
                     </div>
                 </div>
             </div>
@@ -131,17 +131,17 @@
                     lbl_date: "Preferred Date",
                     btn_submit: "Send Inquiry"
                 },
-                ja: {
-                    nav_home: "ホーム",
-                    nav_menu: "メニュー",
-                    nav_book: "予約",
-                    book_title: "ご予約",
-                    book_intro: "ご希望の日時とサービスをお知らせください。折り返しご連絡いたします。",
-                    lbl_name: "お名前",
-                    lbl_email: "メールアドレス",
-                    lbl_service: "ご希望のメニュー",
-                    lbl_date: "ご希望日",
-                    btn_submit: "問い合わせる"
+                kr: {
+                    nav_home: "홈",
+                    nav_menu: "메뉴",
+                    nav_book: "예약",
+                    book_title: "예약하기",
+                    book_intro: "아래 양식을 작성해 주세요. 확인 후 빠른 시일 내에 연락드리겠습니다.",
+                    lbl_name: "성함",
+                    lbl_email: "이메일 주소",
+                    lbl_service: "서비스",
+                    lbl_date: "희망 날짜",
+                    btn_submit: "문의 보내기"
                 }
             }
         });
