@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toi Nishitani | Web Design Auckland</title>
     <meta name="description"
-        content="Affordable, bilingual website design for small businesses in Auckland using modern web technologies.">
+        content="Affordable, bilingual website design for small businesses in Auckland. Starter from $499. Demo-first approach — see before you buy.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,12 +16,14 @@
                         brand: {
                             50: '#f0f9ff',
                             100: '#e0f2fe',
-                            500: '#0ea5e9', // Sky blue
+                            200: '#bae6fd',
+                            500: '#0ea5e9',
                             600: '#0284c7',
+                            700: '#0369a1',
                             900: '#0c4a6e',
                         },
                         accent: {
-                            light: '#fdf4ff', // Fuchsia tint
+                            light: '#fdf4ff',
                             DEFAULT: '#d946ef',
                         }
                     },
@@ -32,46 +34,73 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
 
+        /* ドットパターン背景 */
         .hero-pattern {
             background-color: #f0f9ff;
             background-image: radial-gradient(#bae6fd 1px, transparent 1px);
             background-size: 24px 24px;
+        }
+
+        /* FAQ アコーディオン */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        /* プランカードのホバーエフェクト */
+        .plan-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
     </style>
 </head>
 
 <body class="text-slate-800 bg-white">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100 transition-all duration-300"
-        id="navbar">
+    <!-- ===== Navigation ===== -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-xl font-bold text-slate-900 tracking-tight">
-                        Toi Nishitani<span class="text-brand-500">.</span>
-                    </a>
-                </div>
-                <!-- Desktop Menu -->
+                <a href="#" class="text-xl font-bold text-slate-900 tracking-tight">
+                    Toi Nishitani<span class="text-brand-500">.</span>
+                </a>
+                <!-- Desktop -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#services"
-                        class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
-                        data-i18n="nav_services">Services</a>
+                    <a href="#why" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
+                        data-i18n="nav_why">Why Me</a>
+                    <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
+                        data-i18n="nav_pricing">Pricing</a>
                     <a href="#work" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
                         data-i18n="nav_work">Work</a>
-                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
-                        data-i18n="nav_about">About</a>
+                    <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
+                        data-i18n="nav_faq">FAQ</a>
                     <a href="#contact"
                         class="px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
                         data-i18n="nav_contact">Contact</a>
-
-                    <!-- Language Switcher -->
                     <div class="flex items-center space-x-2 border-l pl-6 border-slate-200">
                         <button data-lang-switch="en"
                             class="lang-btn text-xs uppercase tracking-wider font-bold">EN</button>
@@ -80,7 +109,7 @@
                             class="lang-btn text-xs uppercase tracking-wider opacity-50">JA</button>
                     </div>
                 </div>
-                <!-- Mobile menu button (simple implementation) -->
+                <!-- Mobile -->
                 <div class="md:hidden flex items-center space-x-4">
                     <div class="flex items-center space-x-1">
                         <button data-lang-switch="en" class="lang-btn text-xs font-bold p-1">EN</button>
@@ -92,94 +121,193 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===== 1. Hero ===== -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <span
                 class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-600 text-xs font-semibold tracking-wide uppercase mb-6"
                 data-i18n="hero_badge">Based in Auckland, NZ</span>
             <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
-                <span data-i18n="hero_title_1">Websites for</span><br class="hidden md:block">
+                <span data-i18n="hero_title_1">See It First,</span><br class="hidden md:block">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent"
-                    data-i18n="hero_title_2">Small Businesses</span>
+                    data-i18n="hero_title_2">Then Decide.</span>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-10" data-i18n="hero_subtitle">
-                Clean, bilingual, and affordable websites designed to help local businesses grow. No monthly fees, just
-                results.
+            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10" data-i18n="hero_subtitle">
+                I build demo sites for your industry first — so you can see exactly what you're getting before you
+                commit. Bilingual, mobile-ready, from $499.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#work"
                     class="px-8 py-4 rounded-full bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                    data-i18n="hero_cta_primary">View Work</a>
-                <a href="#contact"
+                    data-i18n="hero_cta_primary">View Demos</a>
+                <a href="#pricing"
                     class="px-8 py-4 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold hover:bg-slate-50 transition-all"
-                    data-i18n="hero_cta_secondary">Get in Touch</a>
+                    data-i18n="hero_cta_secondary">See Pricing</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <!-- ===== 2. Why Choose Me ===== -->
+    <section id="why" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="services_title">Why Choose Me?</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto" data-i18n="services_subtitle">I combine technical
-                    expertise with design sense to build websites that work for you.</p>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="why_title">Why Choose Me?</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto" data-i18n="why_subtitle">Four reasons small
+                    businesses trust me with their website.</p>
             </div>
-
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
+                <!-- デモ先行 -->
                 <div
                     class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl mb-4">📱
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_1_title">Responsive Design</h3>
-                    <p class="text-slate-600" data-i18n="service_1_desc">Mobile-first layouts that look perfect on
-                        phones, tablets, and desktops.</p>
+                    <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center text-2xl mb-4">🎯</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="why_1_title">Demo-First Approach</h3>
+                    <p class="text-slate-600 text-sm" data-i18n="why_1_desc">See a working demo for your industry before
+                        signing anything. No guesswork.</p>
                 </div>
-                <!-- Card 2 -->
-                <div
-                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-2xl mb-4">⚡
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_2_title">Fast Turnaround</h3>
-                    <p class="text-slate-600" data-i18n="service_2_desc">Most projects are delivered within 1 week so
-                        you can launch quickly.</p>
-                </div>
-                <!-- Card 3 -->
-                <div
-                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
-                    <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-2xl mb-4">🌏
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_3_title">Bilingual (EN/JA)</h3>
-                    <p class="text-slate-600" data-i18n="service_3_desc">Reach both local Kiwis and Japanese customers
-                        with seamless language switching.</p>
-                </div>
-                <!-- Card 4 -->
+                <!-- 固定価格 -->
                 <div
                     class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
                     <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl mb-4">💰
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="service_4_title">Affordable</h3>
-                    <p class="text-slate-600" data-i18n="service_4_desc">Transparent pricing starting from $800. No
-                        hidden agency fees.</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="why_2_title">Fixed Pricing</h3>
+                    <p class="text-slate-600 text-sm" data-i18n="why_2_desc">Starter $499, Standard $699 — no surprises,
+                        no hidden fees. 2 revision rounds included.</p>
+                </div>
+                <!-- 多言語 -->
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
+                    <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-2xl mb-4">🌏
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="why_3_title">Bilingual as Standard</h3>
+                    <p class="text-slate-600 text-sm" data-i18n="why_3_desc">EN + 1 language included. Perfect for
+                        Auckland's multicultural market.</p>
+                </div>
+                <!-- 運用 -->
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all border border-slate-100">
+                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-2xl mb-4">🛡️
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="why_4_title">Ongoing Support</h3>
+                    <p class="text-slate-600 text-sm" data-i18n="why_4_desc">$50/year covers domain renewal, SSL, and
+                        minor updates. Not just "build & forget".</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Section -->
-    <section id="work" class="py-20 bg-slate-50">
+    <!-- ===== 3. Pricing ===== -->
+    <section id="pricing" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-2" data-i18n="work_title">Recent Work</h2>
-                    <p class="text-lg text-slate-600" data-i18n="work_subtitle">Check out these demo projects.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="pricing_title">Simple, Transparent Pricing
+                </h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto" data-i18n="pricing_subtitle">All prices in NZD,
+                    excl. GST. 2 languages included as standard.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter -->
+                <div class="plan-card bg-white rounded-2xl p-8 border border-slate-200 flex flex-col">
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Starter</h3>
+                    <div class="flex items-baseline gap-1 mb-4">
+                        <span class="text-4xl font-extrabold text-slate-900">$499</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6" data-i18n="plan_starter_desc">Perfect for a simple landing
+                        page.</p>
+                    <ul class="space-y-3 text-sm text-slate-700 mb-8 flex-1">
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_s_1">1-page site (landing page)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_s_2">EN + 1 language (JP free, others +$30)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_s_3">2 revision rounds</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_s_4">Contact via email (mailto)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_s_5">Responsive design</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_s_6">Basic SEO</span></li>
+                    </ul>
+                    <a href="#contact"
+                        class="block text-center py-3 rounded-full border-2 border-slate-900 text-slate-900 font-semibold hover:bg-slate-900 hover:text-white transition-all"
+                        data-i18n="plan_cta">Get Started</a>
+                </div>
+                <!-- Standard (Popular) -->
+                <div class="plan-card bg-white rounded-2xl p-8 border-2 border-brand-500 flex flex-col relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand-500 text-white text-xs font-bold rounded-full"
+                        data-i18n="plan_popular">Most Popular</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Standard</h3>
+                    <div class="flex items-baseline gap-1 mb-4">
+                        <span class="text-4xl font-extrabold text-slate-900">$699</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6" data-i18n="plan_standard_desc">Ideal for most small
+                        businesses.</p>
+                    <ul class="space-y-3 text-sm text-slate-700 mb-8 flex-1">
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_st_1">2–5 page site</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_st_2">EN + 1 language (JP free, others +$30)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_st_3">2 revision rounds</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_st_4">Contact via email (upgradable to form)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_st_5">Responsive design</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_st_6">Basic SEO + SSL</span></li>
+                    </ul>
+                    <a href="#contact"
+                        class="block text-center py-3 rounded-full bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-all"
+                        data-i18n="plan_cta">Get Started</a>
+                </div>
+                <!-- Pro -->
+                <div class="plan-card bg-white rounded-2xl p-8 border border-slate-200 flex flex-col">
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Pro</h3>
+                    <div class="flex items-baseline gap-1 mb-4">
+                        <span class="text-4xl font-extrabold text-slate-900" data-i18n="plan_pro_price">Quote</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6" data-i18n="plan_pro_desc">For advanced needs — booking,
+                        payments, CMS.</p>
+                    <ul class="space-y-3 text-sm text-slate-700 mb-8 flex-1">
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_p_1">Custom page count</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_p_2">Booking / payment integration</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_p_3">Blog / CMS</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_p_4">Advanced analytics</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✓</span> <span
+                                data-i18n="plan_p_5">Everything in Standard</span></li>
+                    </ul>
+                    <a href="#contact"
+                        class="block text-center py-3 rounded-full border-2 border-slate-900 text-slate-900 font-semibold hover:bg-slate-900 hover:text-white transition-all"
+                        data-i18n="plan_cta_pro">Contact Me</a>
                 </div>
             </div>
+            <!-- 追加オプション -->
+            <div class="max-w-3xl mx-auto mt-12 text-center">
+                <div class="inline-flex flex-wrap justify-center gap-4 text-sm text-slate-600">
+                    <span class="px-4 py-2 bg-white rounded-full border border-slate-200" data-i18n="addon_lang">Extra
+                        language: +$50 each</span>
+                    <span class="px-4 py-2 bg-white rounded-full border border-slate-200" data-i18n="addon_logo">Logo
+                        design: +$50</span>
+                    <span class="px-4 py-2 bg-white rounded-full border border-slate-200"
+                        data-i18n="addon_annual">Annual support: $50/year</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ===== 4. Demo Sites (Work) ===== -->
+    <section id="work" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2" data-i18n="work_title">Industry Demos</h2>
+                <p class="text-lg text-slate-600" data-i18n="work_subtitle">See a working demo tailored to your type of
+                    business.</p>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Cafe Demo -->
+                <!-- Cafe -->
                 <a href="./demos/cafe/index.html" class="group block" data-lang-link>
                     <div class="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] mb-4 bg-gray-200">
                         <img src="./assets/demo-cafe.jpg"
@@ -190,18 +318,17 @@
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors"
                         data-i18n="demo_cafe_title">Cafe & Eatery</h3>
-                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_cafe_desc">Warm, photo-forward design for
-                        hospitality.</p>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_cafe_desc">Menu, hours, map, contact — EN +
+                        JP</p>
                     <div class="mt-3 flex flex-wrap gap-2">
                         <span
-                            class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Bilingual
-                            Menu</span>
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Mobile
-                            Friendly</span>
+                            class="text-xs px-2 py-1 bg-slate-50 border border-slate-200 rounded text-slate-500">Standard
+                            $699</span>
+                        <span class="text-xs px-2 py-1 bg-slate-50 border border-slate-200 rounded text-slate-500">4
+                            pages</span>
                     </div>
                 </a>
-
-                <!-- Auto Repair Demo -->
+                <!-- Auto Repair -->
                 <a href="./demos/auto-repair/index.html" class="group block" data-lang-link>
                     <div class="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] mb-4 bg-gray-200">
                         <img src="./assets/demo-auto.jpg"
@@ -211,18 +338,18 @@
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors"
-                        data-i18n="demo_auto_title">Auto Repair Shop</h3>
-                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_auto_desc">Trustworthy layout for service
-                        businesses.</p>
+                        data-i18n="demo_auto_title">Auto Repair</h3>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_auto_desc">Services, gallery, quote form — EN
+                        + CN</p>
                     <div class="mt-3 flex flex-wrap gap-2">
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Booking
-                            Form</span>
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Services
-                            List</span>
+                        <span
+                            class="text-xs px-2 py-1 bg-slate-50 border border-slate-200 rounded text-slate-500">Standard
+                            $699</span>
+                        <span class="text-xs px-2 py-1 bg-slate-50 border border-slate-200 rounded text-slate-500">4
+                            pages</span>
                     </div>
                 </a>
-
-                <!-- Hair Salon Demo -->
+                <!-- Hair Salon -->
                 <a href="./demos/hair-salon/index.html" class="group block" data-lang-link>
                     <div class="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] mb-4 bg-gray-200">
                         <img src="./assets/demo-salon.jpg"
@@ -233,26 +360,150 @@
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors"
                         data-i18n="demo_salon_title">Hair Salon</h3>
-                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_salon_desc">Elegant, gallery-ready design for
-                        beauty.</p>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="demo_salon_desc">Menu, stylists, booking, IG — EN
+                        + KR</p>
                     <div class="mt-3 flex flex-wrap gap-2">
                         <span
-                            class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Gallery</span>
-                        <span class="text-xs px-2 py-1 bg-white border border-slate-200 rounded text-slate-500">Price
-                            List</span>
+                            class="text-xs px-2 py-1 bg-slate-50 border border-slate-200 rounded text-slate-500">Standard
+                            $699</span>
+                        <span class="text-xs px-2 py-1 bg-slate-50 border border-slate-200 rounded text-slate-500">5
+                            pages</span>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <!-- ===== 5. How It Works ===== -->
+    <section id="how" class="py-20 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="how_title">How It Works</h2>
+                <p class="text-lg text-slate-600" data-i18n="how_subtitle">From demo to launch in as little as one week.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        1</div>
+                    <h3 class="font-bold text-slate-900 mb-2" data-i18n="how_1_title">View Demo</h3>
+                    <p class="text-sm text-slate-600" data-i18n="how_1_desc">Browse industry demos and see exactly what
+                        you'll get.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        2</div>
+                    <h3 class="font-bold text-slate-900 mb-2" data-i18n="how_2_title">Choose a Plan</h3>
+                    <p class="text-sm text-slate-600" data-i18n="how_2_desc">Pick Starter or Standard. Pay 50% upfront
+                        to begin.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        3</div>
+                    <h3 class="font-bold text-slate-900 mb-2" data-i18n="how_3_title">Customise</h3>
+                    <p class="text-sm text-slate-600" data-i18n="how_3_desc">Provide your content. I tailor the site to
+                        your brand.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        4</div>
+                    <h3 class="font-bold text-slate-900 mb-2" data-i18n="how_4_title">Launch</h3>
+                    <p class="text-sm text-slate-600" data-i18n="how_4_desc">Review, approve, go live. 2 free revisions
+                        included.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. FAQ ===== -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 text-center mb-12" data-i18n="faq_title">Frequently Asked
+                Questions</h2>
+            <div class="space-y-4" id="faq-list">
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50 transition-colors">
+                        <span data-i18n="faq_q1">What's included in the price?</span>
+                        <span class="faq-icon text-xl text-slate-400">+</span>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                        <p data-i18n="faq_a1">HTML/CSS/JS website, hosting setup, domain & SSL config, basic SEO,
+                            responsive design, and bilingual language switching (EN + 1 language). See the pricing
+                            section for plan details.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50 transition-colors">
+                        <span data-i18n="faq_q2">Do I need to provide photos and text?</span>
+                        <span class="faq-icon text-xl text-slate-400">+</span>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                        <p data-i18n="faq_a2">You can, but it's not required. If the demo template content works for
+                            you, there's no extra charge. Providing your own text/photos counts towards your revision
+                            rounds.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50 transition-colors">
+                        <span data-i18n="faq_q3">What happens after 2 revision rounds?</span>
+                        <span class="faq-icon text-xl text-slate-400">+</span>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                        <p data-i18n="faq_a3">Additional revisions are quoted separately. I'll always tell you the cost
+                            before starting any extra work.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50 transition-colors">
+                        <span data-i18n="faq_q4">What does the $50/year annual plan cover?</span>
+                        <span class="faq-icon text-xl text-slate-400">+</span>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                        <p data-i18n="faq_a4">Domain renewal, DNS & SSL support, and up to 30 minutes of minor text
+                            updates per year (e.g. prices, hours, address). Unused time does not roll over.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50 transition-colors">
+                        <span data-i18n="faq_q5">Can I add more languages later?</span>
+                        <span class="faq-icon text-xl text-slate-400">+</span>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                        <p data-i18n="faq_a5">Yes! A 3rd language (and beyond) is +$50 each, regardless of which
+                            language.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50 transition-colors">
+                        <span data-i18n="faq_q6">How long does it take?</span>
+                        <span class="faq-icon text-xl text-slate-400">+</span>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                        <p data-i18n="faq_a6">Starter: 3–5 business days. Standard: 1–2 weeks. Timeline starts once you
+                            provide your content (text, photos, logo).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 7. About ===== -->
+    <section id="about" class="py-20 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold text-slate-900 mb-8" data-i18n="about_title">About Me</h2>
             <div class="prose prose-lg mx-auto text-slate-600 space-y-6">
                 <p data-i18n="about_p1">
-                    Hi, I'm Toi—a web designer based in Auckland with a software development background. After years
+                    Hi, I'm Toi — a web designer based in Auckland with a software development background. After years
                     building enterprise applications in Japan, I moved to New Zealand and discovered a passion for
                     helping small businesses create their digital presence.
                 </p>
@@ -262,35 +513,33 @@
                     simple contact page, I deliver quality websites without the agency price tag.
                 </p>
             </div>
-
             <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center">
                     <div class="text-3xl font-bold text-brand-600 mb-1">5+</div>
-                    <div class="text-sm text-slate-500">Years Experience</div>
+                    <div class="text-sm text-slate-500" data-i18n="stat_exp">Years Experience</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-brand-600 mb-1">JP/EN</div>
-                    <div class="text-sm text-slate-500">Native/Fluent</div>
+                    <div class="text-sm text-slate-500" data-i18n="stat_lang">Native / Fluent</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-brand-600 mb-1">100%</div>
-                    <div class="text-sm text-slate-500">Hand-Coded</div>
+                    <div class="text-sm text-slate-500" data-i18n="stat_code">Hand-Coded</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-brand-600 mb-1">Akl</div>
-                    <div class="text-sm text-slate-500">Locally Based</div>
+                    <div class="text-sm text-slate-500" data-i18n="stat_loc">Locally Based</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== 8. Contact ===== -->
     <section id="contact" class="py-20 bg-slate-900 text-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-6" data-i18n="contact_title">Let's Work Together</h2>
-            <p class="text-lg text-slate-300 mb-10" data-i18n="contact_subtitle">Ready to start your project? Send me a
-                message and I'll get back to you within 24 hours.</p>
-
+            <p class="text-lg text-slate-300 mb-10" data-i18n="contact_subtitle">Ready to start? Send me a message and
+                I'll get back to you within 24 hours.</p>
             <div class="bg-slate-800 rounded-2xl p-8 mb-10 shadow-2xl border border-slate-700">
                 <form action="mailto:hello@toinishitani.nz" method="post" enctype="text/plain"
                     class="space-y-4 text-left">
@@ -321,7 +570,6 @@
                         default email client.</p>
                 </form>
             </div>
-
             <div class="flex justify-center space-x-6 text-slate-400">
                 <a href="#" class="hover:text-white transition-colors">GitHub</a>
                 <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
@@ -331,56 +579,137 @@
         </div>
     </section>
 
-    <!-- Language Script -->
+    <!-- ===== Scripts ===== -->
     <script src="./demos/shared/demo-lang.js"></script>
     <script>
-        // Check for fallback image function in case script hasn't loaded yet
+        // フォールバック画像関数（スクリプト未読み込み時のセーフガード）
         if (!window.__demoFallbackImg) {
             window.__demoFallbackImg = function (img) { img.style.display = 'none'; }
         }
 
-        // Initialize Language
+        // FAQ アコーディオン
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                // 他を閉じる
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    if (i !== item) i.classList.remove('open');
+                });
+                item.classList.toggle('open');
+            });
+        });
+
+        // 言語システム初期化 — 仕様書 §14 の文言に完全準拠
         DemoLang.init({
             dict: {
                 en: {
-                    nav_services: "Services",
+                    // Nav
+                    nav_why: "Why Me",
+                    nav_pricing: "Pricing",
                     nav_work: "Work",
-                    nav_about: "About",
+                    nav_faq: "FAQ",
                     nav_contact: "Contact",
 
+                    // Hero
                     hero_badge: "Based in Auckland, NZ",
-                    hero_title_1: "Websites for",
-                    hero_title_2: "Small Businesses",
-                    hero_subtitle: "Clean, bilingual, and affordable websites designed to help local businesses grow. No monthly fees, just results.",
-                    hero_cta_primary: "View Work",
-                    hero_cta_secondary: "Get in Touch",
+                    hero_title_1: "See It First,",
+                    hero_title_2: "Then Decide.",
+                    hero_subtitle: "I build demo sites for your industry first — so you can see exactly what you're getting before you commit. Bilingual, mobile-ready, from $499.",
+                    hero_cta_primary: "View Demos",
+                    hero_cta_secondary: "See Pricing",
 
-                    services_title: "Why Choose Me?",
-                    services_subtitle: "I combine technical expertise with design sense to build websites that work for you.",
-                    service_1_title: "Responsive Design",
-                    service_1_desc: "Mobile-first layouts that look perfect on phones, tablets, and desktops.",
-                    service_2_title: "Fast Turnaround",
-                    service_2_desc: "Most projects are delivered within 1 week so you can launch quickly.",
-                    service_3_title: "Bilingual (EN/JA)",
-                    service_3_desc: "Reach both local Kiwis and Japanese customers with seamless language switching.",
-                    service_4_title: "Affordable",
-                    service_4_desc: "Transparent pricing starting from $800. No hidden agency fees.",
+                    // Why
+                    why_title: "Why Choose Me?",
+                    why_subtitle: "Four reasons small businesses trust me with their website.",
+                    why_1_title: "Demo-First Approach",
+                    why_1_desc: "See a working demo for your industry before signing anything. No guesswork.",
+                    why_2_title: "Fixed Pricing",
+                    why_2_desc: "Starter $499, Standard $699 — no surprises, no hidden fees. 2 revision rounds included.",
+                    why_3_title: "Bilingual as Standard",
+                    why_3_desc: "EN + 1 language included. Perfect for Auckland's multicultural market.",
+                    why_4_title: "Ongoing Support",
+                    why_4_desc: "$50/year covers domain renewal, SSL, and minor updates. Not just \"build & forget\".",
 
-                    work_title: "Recent Work",
-                    work_subtitle: "Check out these demo projects.",
+                    // Pricing
+                    pricing_title: "Simple, Transparent Pricing",
+                    pricing_subtitle: "All prices in NZD, excl. GST. 2 languages included as standard.",
+                    plan_starter_desc: "Perfect for a simple landing page.",
+                    plan_s_1: "1-page site (landing page)",
+                    plan_s_2: "EN + 1 language (JP free, others +$30)",
+                    plan_s_3: "2 revision rounds",
+                    plan_s_4: "Contact via email (mailto)",
+                    plan_s_5: "Responsive design",
+                    plan_s_6: "Basic SEO",
+                    plan_popular: "Most Popular",
+                    plan_standard_desc: "Ideal for most small businesses.",
+                    plan_st_1: "2–5 page site",
+                    plan_st_2: "EN + 1 language (JP free, others +$30)",
+                    plan_st_3: "2 revision rounds",
+                    plan_st_4: "Contact via email (upgradable to form)",
+                    plan_st_5: "Responsive design",
+                    plan_st_6: "Basic SEO + SSL",
+                    plan_pro_price: "Quote",
+                    plan_pro_desc: "For advanced needs — booking, payments, CMS.",
+                    plan_p_1: "Custom page count",
+                    plan_p_2: "Booking / payment integration",
+                    plan_p_3: "Blog / CMS",
+                    plan_p_4: "Advanced analytics",
+                    plan_p_5: "Everything in Standard",
+                    plan_cta: "Get Started",
+                    plan_cta_pro: "Contact Me",
+                    addon_lang: "Extra language: +$50 each",
+                    addon_logo: "Logo design: +$50",
+                    addon_annual: "Annual support: $50/year",
+
+                    // Work
+                    work_title: "Industry Demos",
+                    work_subtitle: "See a working demo tailored to your type of business.",
                     demo_cafe_title: "Cafe & Eatery",
-                    demo_cafe_desc: "Warm, photo-forward design for hospitality.",
-                    demo_auto_title: "Auto Repair Shop",
-                    demo_auto_desc: "Trustworthy layout for service businesses.",
+                    demo_cafe_desc: "Menu, hours, map, contact — EN + JP",
+                    demo_auto_title: "Auto Repair",
+                    demo_auto_desc: "Services, gallery, quote form — EN + CN",
                     demo_salon_title: "Hair Salon",
-                    demo_salon_desc: "Elegant, gallery-ready design for beauty.",
+                    demo_salon_desc: "Menu, stylists, booking, IG — EN + KR",
 
+                    // How
+                    how_title: "How It Works",
+                    how_subtitle: "From demo to launch in as little as one week.",
+                    how_1_title: "View Demo",
+                    how_1_desc: "Browse industry demos and see exactly what you'll get.",
+                    how_2_title: "Choose a Plan",
+                    how_2_desc: "Pick Starter or Standard. Pay 50% upfront to begin.",
+                    how_3_title: "Customise",
+                    how_3_desc: "Provide your content. I tailor the site to your brand.",
+                    how_4_title: "Launch",
+                    how_4_desc: "Review, approve, go live. 2 free revisions included.",
+
+                    // FAQ
+                    faq_title: "Frequently Asked Questions",
+                    faq_q1: "What's included in the price?",
+                    faq_a1: "HTML/CSS/JS website, hosting setup, domain & SSL config, basic SEO, responsive design, and bilingual language switching (EN + 1 language). See the pricing section for plan details.",
+                    faq_q2: "Do I need to provide photos and text?",
+                    faq_a2: "You can, but it's not required. If the demo template content works for you, there's no extra charge. Providing your own text/photos counts towards your revision rounds.",
+                    faq_q3: "What happens after 2 revision rounds?",
+                    faq_a3: "Additional revisions are quoted separately. I'll always tell you the cost before starting any extra work.",
+                    faq_q4: "What does the $50/year annual plan cover?",
+                    faq_a4: "Domain renewal, DNS & SSL support, and up to 30 minutes of minor text updates per year (e.g. prices, hours, address). Unused time does not roll over.",
+                    faq_q5: "Can I add more languages later?",
+                    faq_a5: "Yes! A 3rd language (and beyond) is +$50 each, regardless of which language.",
+                    faq_q6: "How long does it take?",
+                    faq_a6: "Starter: 3–5 business days. Standard: 1–2 weeks. Timeline starts once you provide your content (text, photos, logo).",
+
+                    // About
                     about_title: "About Me",
-                    about_p1: "Hi, I'm Toi—a web designer based in Auckland with a software development background. After years building enterprise applications in Japan, I moved to New Zealand and discovered a passion for helping small businesses create their digital presence.",
+                    about_p1: "Hi, I'm Toi — a web designer based in Auckland with a software development background. After years building enterprise applications in Japan, I moved to New Zealand and discovered a passion for helping small businesses create their digital presence.",
                     about_p2: "As a bilingual designer, I understand the unique needs of Auckland's diverse business community. Whether you're a Japanese restaurant owner wanting a bilingual menu site or a local tradie needing a simple contact page, I deliver quality websites without the agency price tag.",
+                    stat_exp: "Years Experience",
+                    stat_lang: "Native / Fluent",
+                    stat_code: "Hand-Coded",
+                    stat_loc: "Locally Based",
 
+                    // Contact
                     contact_title: "Let's Work Together",
-                    contact_subtitle: "Ready to start your project? Send me a message and I'll get back to you within 24 hours.",
+                    contact_subtitle: "Ready to start? Send me a message and I'll get back to you within 24 hours.",
                     label_name: "Name",
                     label_email: "Email",
                     label_message: "Message",
@@ -388,44 +717,113 @@
                     contact_note: "This will open your default email client."
                 },
                 ja: {
-                    nav_services: "サービス",
+                    // Nav
+                    nav_why: "選ばれる理由",
+                    nav_pricing: "料金",
                     nav_work: "制作実績",
-                    nav_about: "私について",
+                    nav_faq: "よくある質問",
                     nav_contact: "お問い合わせ",
 
+                    // Hero
                     hero_badge: "オークランド拠点のウェブ制作",
-                    hero_title_1: "個人事業主・",
-                    hero_title_2: "中小企業向けウェブサイト",
-                    hero_subtitle: "シンプルでモダンなバイリンガルサイト制作。月額固定費なし、明確な料金体系でビジネスの成長を支援します。",
-                    hero_cta_primary: "制作実績を見る",
-                    hero_cta_secondary: "お問い合わせ",
+                    hero_title_1: "まずは見て、",
+                    hero_title_2: "それから決める。",
+                    hero_subtitle: "お客様の業種に合わせたデモサイトを先にお見せします。仕上がりイメージを確認してから契約できるので安心。バイリンガル対応・スマホ最適化、$499から。",
+                    hero_cta_primary: "デモを見る",
+                    hero_cta_secondary: "料金を見る",
 
-                    services_title: "サービスの特徴",
-                    services_subtitle: "技術力とデザインセンスで、あなたのビジネスに最適なウェブサイトを構築します。",
-                    service_1_title: "レスポンシブデザイン",
-                    service_1_desc: "スマホ、タブレット、PCなど、あらゆるデバイスで美しく表示されるレイアウト。",
-                    service_2_title: "短納期",
-                    service_2_desc: "多くのプロジェクトは1週間以内で納品可能。すぐにビジネスをスタートできます。",
-                    service_3_title: "バイリンガル対応 (日英)",
-                    service_3_desc: "言語切り替え機能を標準搭載。英語圏・日本語圏の両方の顧客にアプローチできます。",
-                    service_4_title: "低価格・明朗会計",
-                    service_4_desc: "$800からの分かりやすい料金設定。高額な月額費用は一切かかりません。",
+                    // Why
+                    why_title: "選ばれる4つの理由",
+                    why_subtitle: "小規模事業に最適なウェブ制作を、安心してお任せいただけます。",
+                    why_1_title: "先に作って見せる提案",
+                    why_1_desc: "契約前に業種別デモサイトで仕上がりを確認。イメージの齟齬なく安心です。",
+                    why_2_title: "固定価格・明瞭会計",
+                    why_2_desc: "Starter $499、Standard $699。追加料金なし、修正2回込みの固定価格。",
+                    why_3_title: "多言語対応が標準",
+                    why_3_desc: "英語＋任意の1言語を標準搭載。オークランドの多文化環境に最適です。",
+                    why_4_title: "運用も安心サポート",
+                    why_4_desc: "年$50でドメイン更新・SSL・軽微な修正まで対応。「作って終わり」ではありません。",
 
-                    work_title: "制作実績",
-                    work_subtitle: "デモサイトにて実際のデザインと動作をご確認いただけます。",
+                    // Pricing
+                    pricing_title: "シンプルで明確な料金体系",
+                    pricing_subtitle: "全てNZD（税別）。2言語対応が標準です。",
+                    plan_starter_desc: "シンプルなランディングページに最適。",
+                    plan_s_1: "1ページサイト（LP形式）",
+                    plan_s_2: "英語＋1言語（日本語は無料、他言語+$30）",
+                    plan_s_3: "修正2回まで含む",
+                    plan_s_4: "お問い合わせ（メール起動）",
+                    plan_s_5: "レスポンシブデザイン",
+                    plan_s_6: "基本SEO対応",
+                    plan_popular: "人気No.1",
+                    plan_standard_desc: "ほとんどの小規模事業に最適。",
+                    plan_st_1: "2〜5ページサイト",
+                    plan_st_2: "英語＋1言語（日本語は無料、他言語+$30）",
+                    plan_st_3: "修正2回まで含む",
+                    plan_st_4: "お問い合わせ（フォーム化も可）",
+                    plan_st_5: "レスポンシブデザイン",
+                    plan_st_6: "基本SEO＋SSL対応",
+                    plan_pro_price: "見積もり",
+                    plan_pro_desc: "予約・決済・CMSなど高度な要件に対応。",
+                    plan_p_1: "ページ数自由",
+                    plan_p_2: "予約 / 決済システム連携",
+                    plan_p_3: "ブログ / CMS",
+                    plan_p_4: "高度な計測・分析",
+                    plan_p_5: "Standardの全機能を含む",
+                    plan_cta: "はじめる",
+                    plan_cta_pro: "お問い合わせ",
+                    addon_lang: "追加言語：+$50 / 言語",
+                    addon_logo: "ロゴ制作：+$50",
+                    addon_annual: "年間保守：$50/年",
+
+                    // Work
+                    work_title: "業種別デモサイト",
+                    work_subtitle: "お客様の業種に合わせた実例デモをご覧いただけます。",
                     demo_cafe_title: "カフェ・飲食店",
-                    demo_cafe_desc: "写真を中心とした温かみのあるデザイン。",
-                    demo_auto_title: "自動車修理・サービス",
-                    demo_auto_desc: "信頼感を与えるプロフェッショナルなレイアウト。",
+                    demo_cafe_desc: "メニュー、営業時間、地図、問い合わせ — 英語＋日本語",
+                    demo_auto_title: "自動車修理・整備",
+                    demo_auto_desc: "サービス一覧、ギャラリー、見積もり — 英語＋中国語",
                     demo_salon_title: "ヘアサロン・美容",
-                    demo_salon_desc: "ギャラリーを活用した上品で美しいデザイン。",
+                    demo_salon_desc: "メニュー、スタイリスト、予約、IG連携 — 英語＋韓国語",
 
+                    // How
+                    how_title: "ご利用の流れ",
+                    how_subtitle: "デモ確認から公開まで、最短1週間。",
+                    how_1_title: "デモを確認",
+                    how_1_desc: "業種別デモサイトで、仕上がりイメージをご確認ください。",
+                    how_2_title: "プランを選択",
+                    how_2_desc: "StarterまたはStandardを選択。着手金50%でスタート。",
+                    how_3_title: "カスタマイズ",
+                    how_3_desc: "素材をご提供いただき、あなたのブランドに合わせて調整します。",
+                    how_4_title: "公開",
+                    how_4_desc: "確認・承認後、サイトを公開。無償修正2回付き。",
+
+                    // FAQ
+                    faq_title: "よくある質問",
+                    faq_q1: "料金に何が含まれますか？",
+                    faq_a1: "HTML/CSS/JSのウェブサイト、ホスティング設定、ドメイン・SSL設定、基本SEO、レスポンシブデザイン、言語切り替え機能（英語＋1言語）が含まれます。",
+                    faq_q2: "写真や文章は自分で用意する必要がありますか？",
+                    faq_a2: "必須ではありません。デモサイトの素材でOKなら追加料金はかかりません。ご自分の素材に差し替える場合は修正回数を消費します。",
+                    faq_q3: "修正2回を超えたらどうなりますか？",
+                    faq_a3: "追加修正は別途見積となります。作業着手前に必ず費用をお伝えします。",
+                    faq_q4: "年$50の保守に何が含まれますか？",
+                    faq_a4: "ドメイン更新、DNS・SSLサポート、年間30分以内の軽微なテキスト修正（料金表、営業時間、住所など）が含まれます。未使用分の繰り越しはありません。",
+                    faq_q5: "後から言語を追加できますか？",
+                    faq_a5: "はい！3言語目以降は言語に関わらず1言語につき+$50で追加可能です。",
+                    faq_q6: "納期はどのくらいですか？",
+                    faq_a6: "Starter：3〜5営業日、Standard：1〜2週間。素材（文章・写真・ロゴ等）ご提供後からカウント開始です。",
+
+                    // About
                     about_title: "私について",
-                    about_p1: "オークランド在住のウェブデザイナー、トイです。日本でエンタープライズ向けのソフトウェア開発に長年携わった後、ニュージーランドに移住しました。現在はその技術的背景を活かし、個人事業主の方々のデジタルプレゼンス作りをお手伝いしています。",
-                    about_p2: "バイリンガルデザイナーとして、オークランドの多様なビジネス環境を理解しています。日本食レストランのメニューサイトから、地元の職人さんのシンプルな連絡用ページまで、エージェンシー価格ではない手頃な価格で、高品質なサイトを提供します。",
+                    about_p1: "オークランド在住のウェブデザイナー、トイです。日本でエンタープライズ向けソフトウェア開発に携わった後、ニュージーランドに移住。現在は技術的背景を活かし、小規模事業のデジタルプレゼンスづくりをお手伝いしています。",
+                    about_p2: "バイリンガルデザイナーとして、オークランドの多様なビジネス環境を理解しています。日本食レストランのメニューサイトから地元の職人さんのページまで、エージェンシー価格ではない手頃な料金で高品質なサイトを提供します。",
+                    stat_exp: "実務経験",
+                    stat_lang: "日本語 / 英語",
+                    stat_code: "手書きコード",
+                    stat_loc: "オークランド在住",
 
+                    // Contact
                     contact_title: "お問い合わせ",
-                    contact_subtitle: "プロジェクトのご相談、お見積りなど、お気軽にお問い合わせください。24時間以内に返信いたします。",
+                    contact_subtitle: "プロジェクトのご相談、お見積りなど、お気軽にどうぞ。24時間以内に返信いたします。",
                     label_name: "お名前",
                     label_email: "メールアドレス",
                     label_message: "メッセージ",
