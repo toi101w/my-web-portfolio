@@ -57,12 +57,8 @@ const DemoLang = {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (this.dict[lang] && this.dict[lang][key]) {
-        // Handle HTML content if key ends with '_html', otherwise textContent
-        if (key.endsWith('_html')) {
-          el.innerHTML = this.dict[lang][key];
-        } else {
-          el.textContent = this.dict[lang][key];
-        }
+        // Always use innerHTML to support tags like <br> in all fields
+        el.innerHTML = this.dict[lang][key];
       }
     });
 
